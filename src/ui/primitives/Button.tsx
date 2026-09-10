@@ -7,10 +7,15 @@ const variants: Record<ButtonVariant, string> = {
         bg-white/10
         text-white
         w-full
+        shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]
     `,
     secondary: `
-        bg-blue-500
+        h-[30px]
+        w-[61px]
         text-white
+        items-center
+        justify-center
+        text-sm
     `,
 }
 
