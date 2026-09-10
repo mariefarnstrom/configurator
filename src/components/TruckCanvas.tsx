@@ -42,7 +42,7 @@ export function TruckCanvas() {
     }
 
     return (
-        <>
+        <div className="h-dvh">
             <form onSubmit={handleSubmit}>
                 <select onChange={(e) => setWheels(e.target.value)} name="tires" id="">
                     <option value="Wheels_1">Wheels_1</option>
@@ -58,6 +58,6 @@ export function TruckCanvas() {
 
                 <OrbitControls />
             </Canvas>
-        </>
+        </div>
     )
 }
