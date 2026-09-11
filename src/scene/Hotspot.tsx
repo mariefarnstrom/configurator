@@ -8,7 +8,7 @@ type HotspotProps = {
 
 
 export function Hotspot({ position, option }: HotspotProps) {
-    const { setActiveOption } = useConfiguratorStore();
+    const setActiveOption = useConfiguratorStore((state) => state.setActiveOption);
 
     return (
         <Html position={position}>
