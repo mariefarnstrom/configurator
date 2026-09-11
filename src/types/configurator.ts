@@ -1,3 +1,5 @@
+export type Theme = "dark" | "light"
+
 export const RIM_IDS = ['standard', 'sport'] as const
 export type RimId = (typeof RIM_IDS)[number]
 

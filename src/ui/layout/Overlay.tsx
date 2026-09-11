@@ -3,9 +3,12 @@ import { OptionDrawer } from "../panels/OptionDrawer";
 import { TechSpecPanel } from "../panels/TechSpecPanel";
 import { ThemeToggle } from "../primitives/ThemeToggle";
 
+import { useConfiguratorStore } from "../../store/configuratorStore";
+
 export function Overlay() {
+    const { theme } = useConfiguratorStore()
     return (
-        <div className="grid grid-cols-3 absolute inset-0 w-dvw h-dvh pointer-events-none p-[40px_72px_72px_72px]">
+        <div className={`${theme === "dark" ? "dark" : ""} grid grid-cols-3 absolute inset-0 w-dvw h-dvh pointer-events-none p-[40px_72px_72px_72px]`}>
             <div className="bg-amber-200 w-36 h-36"></div>
             {/* <div className="bg-amber-500 w-14 h-14 justify-self-center"></div> */}
             <ThemeToggle className="justify-self-center self-start" />
