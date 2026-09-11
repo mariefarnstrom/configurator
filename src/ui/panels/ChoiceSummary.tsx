@@ -8,12 +8,12 @@ function PriceTag() {
 }
 
 export function ChoiceSummary() {
-    const { chassi, tire, rim } = useConfiguratorStore()
+    const { chassi, wheels, rim } = useConfiguratorStore()
     const selection = {
         body: chassi,
         color: "Midnight blue",
         rim: rim,
-        tire: tire,
+        tire: wheels,
     }
 
     return (
