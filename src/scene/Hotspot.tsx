@@ -3,7 +3,7 @@ import { useConfiguratorStore } from "../store/configuratorStore";
 
 type HotspotProps = {
     position: [number, number, number];
-    option: "tire" | "chassi";
+    option: "tire" | "chassi" | "rim";
 };
 
 

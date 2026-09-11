@@ -1,20 +1,24 @@
 import { create } from "zustand"
+import type { ChassiId, RimId, TireId } from "../types/configurator";
 
-type ActiveOption = "tire" | "chassi" | null
+export type ActiveOption = "tire" | "chassi" | "rim" | null
 
 type ConfiguratorState = {
     activeOption: ActiveOption,
-    chassi: string,
-    tire: string,
+    chassi: ChassiId,
+    tire: TireId,
+    rim: RimId,
     setActiveOption: (option: ActiveOption) => void,
-    setChassi: (chassi: string) => void,
-    setTire: (tire: string) => void;
+    setChassi: (chassi: ChassiId) => void,
+    setTire: (tire: TireId) => void;
+    setRim: (rim: RimId) => void;
 }
 
 export const useConfiguratorStore = create<ConfiguratorState>((set) => ({
     activeOption: null,
-    chassi: "red",
+    chassi: "cyber",
     tire: "black",
+    rim: "standard",
     setActiveOption: (option) => set({
         activeOption: option,
     }),
@@ -23,5 +27,8 @@ export const useConfiguratorStore = create<ConfiguratorState>((set) => ({
     }),
     setTire: (tire) => set({
         tire,
+    }),
+    setRim: (rim) => set({
+        rim,
     }),
 }))
