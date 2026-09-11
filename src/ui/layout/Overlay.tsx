@@ -1,4 +1,5 @@
 import { ChoiceSummary } from "../panels/ChoiceSummary";
+import { OptionDrawer } from "../panels/OptionDrawer";
 import { ThemeToggle } from "../primitives/ThemeToggle";
 
 export function Overlay() {
@@ -9,6 +10,7 @@ export function Overlay() {
             <div className="bg-amber-800 w-36 h-36 justify-self-end"></div>
             <div className="bg-amber-950 w-96 h-36 col-span-2 self-end"></div>
             <ChoiceSummary />
+            <OptionDrawer />
         </div>
     )
 }
