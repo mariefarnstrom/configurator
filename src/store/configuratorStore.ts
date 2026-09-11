@@ -3,7 +3,7 @@ import type { ChassiId, RimId, TireId } from "../types/configurator";
 
 export type ActiveOption = "tire" | "chassi" | "rim" | null
 
-type ConfiguratorState = {
+export type ConfiguratorState = {
     activeOption: ActiveOption,
     chassi: ChassiId,
     tire: TireId,

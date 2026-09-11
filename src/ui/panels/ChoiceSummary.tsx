@@ -1,14 +1,20 @@
 import { Button } from "../primitives/Button"
+import { useConfiguratorStore } from "../../store/configuratorStore"
+import { selectTotalPrice } from "../../store/selectors";
+
+function PriceTag() {
+    const totalPrice = useConfiguratorStore(selectTotalPrice);
+    return <p>{totalPrice.toLocaleString("sv-SE")} kr</p>;
+}
 
 export function ChoiceSummary() {
+    const { chassi, tire, rim } = useConfiguratorStore()
     const selection = {
-        body: "Sedan",
+        body: chassi,
         color: "Midnight blue",
-        rim: '18" Alloy',
-        tire: "All-season",
+        rim: rim,
+        tire: tire,
     }
-
-    const sum = 1250000
 
     return (
         <div className="w-2xs h-48 justify-self-end self-end text-primary-text text-right">
@@ -19,7 +25,7 @@ export function ChoiceSummary() {
                 <p><span className="text-secondary-text pr-2">Rim</span> {selection.rim}</p>
                 <p><span className="text-secondary-text pr-2">Tire</span> {selection.tire}</p>
             </div>
-            <p className="py-4">{sum}</p>
+            <p className="py-4"><PriceTag /></p>
             <Button variant="primary">Place order</Button>
         </div>
     )
