@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+  background-color: #424242;
+}
+
 @theme {
   --font-heading: "Manrope Variable", sans-serif;
   --font-primary: "Inter Variable", sans-serif;
