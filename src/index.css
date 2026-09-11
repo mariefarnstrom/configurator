@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 body {
+  background-color: #DEDEDE;
+}
+
+body.dark {
   background-color: #424242;
 }
 
@@ -8,6 +12,19 @@ body {
   --font-heading: "Manrope Variable", sans-serif;
   --font-primary: "Inter Variable", sans-serif;
 
-  --color-primary-text: #ffffff;
-  --color-secondary-text: #828282;
+  --color-
+}
+
+:root {
+  --primary-text: #000000;
+  --secondary-text: #828282;
+}
+
+.dark {
+  --primary-text: #ffffff;
+  --secondary-text: #828282;
+}
+
+.text-primary-text {
+  color: var(--primary-text);
 }
