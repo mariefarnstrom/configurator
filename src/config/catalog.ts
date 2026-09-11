@@ -3,8 +3,8 @@ import type { ChassiId, RimId, TireId } from "../types/configurator";
 export const BASE_PRICE = 1_250_000
 
 export const RIM_OPTIONS: { id: RimId; label: string; price: number }[] = [
-  { id: 'standard', label: '18" Alloy', price: 0 },
-  { id: 'sport', label: '20" Sport', price: 25_000 },
+  { id: 'standard', label: 'Standard', price: 0 },
+  { id: 'sport', label: 'Sport', price: 25_000 },
 ]
 
 export const TIRE_OPTIONS: { id: TireId; label: string; price: number }[] = [
