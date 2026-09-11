@@ -19,7 +19,10 @@ const OPTION_LISTS: Record<OptionKey, OptionItem[]> = {
 }
 
 export function OptionDrawer() {
-    const { activeOption, setTire, setChassi, setRim } = useConfiguratorStore()
+    const activeOption = useConfiguratorStore((state) => state.activeOption);
+    const setTire = useConfiguratorStore((state) => state.setTire);
+    const setChassi = useConfiguratorStore((state) => state.setChassi);
+    const setRim = useConfiguratorStore((state) => state.setRim);
 
     if (!activeOption) {
         return null;

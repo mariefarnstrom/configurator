@@ -15,7 +15,8 @@ function printTree(object: THREE.Object3D, depth = 0) {
 }
 
 function Car() {
-    const { chassi, tire } = useConfiguratorStore()
+    const chassi = useConfiguratorStore((state) => state.chassi);
+    const tire = useConfiguratorStore((state) => state.tire);
     const { scene } = useGLTF("/models/WIP_1.glb")
 
     const wheels1 = scene.getObjectByName("Wheels_1")
