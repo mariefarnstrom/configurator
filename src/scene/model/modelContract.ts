@@ -1,6 +1,6 @@
 import type { RimId, TireId, ChassiId } from "../../types/configurator"
 
-export const MODEL_URL = '/models/WIP_1.glb'
+export const MODEL_URL = '/models/WIP_2.glb'
 
 export const RIM_NODES: Record<RimId, string> = {
   standard: 'Rim_1',

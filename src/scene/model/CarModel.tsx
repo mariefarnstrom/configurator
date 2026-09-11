@@ -1,11 +1,12 @@
 import { useGLTF } from "@react-three/drei"
 import { useConfiguratorStore } from "../../store/configuratorStore"
+import { MODEL_URL } from "./modelContract";
 
 export function CarModel() {
     const chassi = useConfiguratorStore((state) => state.chassi);
     const tire = useConfiguratorStore((state) => state.tire);
     const rim = useConfiguratorStore((state) => state.rim);
-    const { scene } = useGLTF("/models/WIP_1.glb")
+    const { scene } = useGLTF(MODEL_URL)
 
     const wheels1 = scene.getObjectByName("Wheels_1")
     const wheels2 = scene.getObjectByName("Wheels_2")
