@@ -1,8 +1,8 @@
 import { create } from "zustand"
-import type { ChassiId, RimId, WheelsId } from "../types/configurator";
+import type { ChassiId, OptionKey, RimId, WheelsId } from "../types/configurator";
 import type { Theme } from "../types/configurator";
 
-export type ActiveOption = "wheels" | "chassi" | "rim" | null
+export type ActiveOption = OptionKey | null
 
 export type ConfiguratorState = {
     theme: Theme,

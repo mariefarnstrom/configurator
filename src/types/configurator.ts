@@ -1,5 +1,8 @@
 export type Theme = "dark" | "light"
 
+export const OPTION_KEYS = ['wheels', 'chassi', 'rim'] as const
+export type OptionKey = (typeof OPTION_KEYS)[number]
+
 export const RIM_IDS = ['standard', 'sport'] as const
 export type RimId = (typeof RIM_IDS)[number]
 

@@ -1,9 +1,7 @@
 import { useConfiguratorStore } from "../../store/configuratorStore";
-import type { ActiveOption } from "../../store/configuratorStore";
 import { CHASSI_OPTIONS, RIM_OPTIONS, WHEELS_OPTIONS } from "../../config/catalog";
-import type { ChassiId, RimId, WheelsId } from "../../types/configurator";
+import type { ChassiId, OptionKey, RimId, WheelsId } from "../../types/configurator";
 
-type OptionKey = Exclude<ActiveOption, null>;
 type OptionItem = { id: string; label: string; price: number };
 
 const OPTION_LABELS: Record<OptionKey, string> = {
