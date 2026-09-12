@@ -3,28 +3,11 @@ import { OrbitControls } from "@react-three/drei"
 import { Hotspot } from "../scene/Hotspot"
 import { hotspots } from "../scene/hotspots"
 import { CarModel } from "../scene/model/CarModel"
-import { useState } from "react"
+import { useDragRotation } from "../hooks/useDragRotation"
 
 export function TruckCanvas() {
-    const [rotation, setRotation] = useState(5)
-    const [isDragging, setIsDragging] = useState(false)
-    const [lastX, setLastX] = useState(0)
 
-    const handlePointerDown = (e: React.PointerEvent) => {
-        setIsDragging(true)
-        setLastX(e.clientX)
-    }
-
-    const handlePointerMove = (e: React.PointerEvent) => {
-        if (!isDragging) return
-        const deltaX = e.clientX - lastX
-        setRotation((current) => current + deltaX * 0.01)
-        setLastX(e.clientX)
-    }
-
-    const handlePointerUp = () => {
-        setIsDragging(false)
-    }
+    const { handlePointerDown, handlePointerMove, handlePointerUp, rotation } = useDragRotation()
 
     return (
         <div className="h-dvh relative" onPointerDown={handlePointerDown}
