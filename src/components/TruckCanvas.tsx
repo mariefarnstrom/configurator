@@ -6,7 +6,7 @@ import { CarModel } from "../scene/model/CarModel"
 import { useState } from "react"
 
 export function TruckCanvas() {
-    const [rotation, setRotation] = useState(0)
+    const [rotation, setRotation] = useState(5)
     const [isDragging, setIsDragging] = useState(false)
     const [lastX, setLastX] = useState(0)
 
