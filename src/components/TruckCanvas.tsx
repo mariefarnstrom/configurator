@@ -39,14 +39,14 @@ export function TruckCanvas() {
                     position={[0, -1, 0]}
                 >
                     <CarModel />
+                    {hotspots.map((hotspot) => (
+                        <Hotspot
+                            key={hotspot.id}
+                            position={hotspot.position}
+                            option={hotspot.option}
+                        />
+                    ))}
                 </group>
-                {hotspots.map((hotspot) => (
-                    <Hotspot
-                        key={hotspot.id}
-                        position={hotspot.position}
-                        option={hotspot.option}
-                    />
-                ))}
 
                 <OrbitControls
                     enableRotate={false}
