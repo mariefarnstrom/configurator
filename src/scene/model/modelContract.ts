@@ -1,4 +1,4 @@
-import type { RimId, TireId, ChassiId } from "../../types/configurator"
+import type { RimId, WheelsId, ChassiId } from "../../types/configurator"
 
 export const MODEL_URL = '/models/WIP_2.glb'
 
@@ -7,14 +7,14 @@ export const RIM_NODES: Record<RimId, string> = {
   sport: 'Rim_2',
 }
 
-export const TIRE_NODES: Record<TireId, string> = {
-  black: 'Tire_1',
-  pink: 'Tire_2',
+export const WHEELS_NODES: Record<WheelsId, string> = {
+  textured: 'Wheels_1',
+  smooth: 'Wheels_2',
 }
 
 export const CHASSI_NODES: Record<ChassiId, string> = {
-  cyber: 'Chassi_1',
-  bubbly: 'Chassi_2',
+  cyber: 'Chassi_Cyber',
+  bubbly: 'Chassi_Bubble',
 }
 
 export const SWITCHABLE_NODES = Object.values(RIM_NODES)
