@@ -1,6 +1,18 @@
 import { useGLTF } from "@react-three/drei"
+import type * as THREE from "three"
 import { useConfiguratorStore } from "../../store/configuratorStore"
-import { MODEL_URL } from "./modelContract";
+import { MODEL_URL, RIM_NODES, WHEELS_NODES, CHASSI_NODES } from "./modelContract";
+
+function applyVisibility<Id extends string>(
+    scene: THREE.Object3D,
+    nodes: Record<Id, string>,
+    selected: Id,
+) {
+    for (const [id, nodeName] of Object.entries(nodes) as [Id, string][]) {
+        const node = scene.getObjectByName(nodeName)
+        if (node) node.visible = id === selected
+    }
+}
 
 export function CarModel() {
     const chassi = useConfiguratorStore((state) => state.chassi);
@@ -8,19 +20,9 @@ export function CarModel() {
     const rim = useConfiguratorStore((state) => state.rim);
     const { scene } = useGLTF(MODEL_URL)
 
-    const wheels1 = scene.getObjectByName("Wheels_1")
-    const wheels2 = scene.getObjectByName("Wheels_2")
-    const chassi1 = scene.getObjectByName("Chassi_1")
-    const chassi2 = scene.getObjectByName("Chassi_2")
-    const rim1 = scene.getObjectByName("Rim_1")
-    const rim2 = scene.getObjectByName("Rim_2")
-
-    if (wheels1) wheels1.visible = wheels === "textured"
-    if (wheels2) wheels2.visible = wheels === "smooth"
-    if (chassi1) chassi1.visible = chassi === "cyber"
-    if (chassi2) chassi2.visible = chassi === "bubbly"
-    if (rim1) rim1.visible = rim === "standard"
-    if (rim2) rim2.visible = rim === "sport"
+    applyVisibility(scene, WHEELS_NODES, wheels)
+    applyVisibility(scene, CHASSI_NODES, chassi)
+    applyVisibility(scene, RIM_NODES, rim)
 
     return <primitive object={scene} />
 }

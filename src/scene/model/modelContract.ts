@@ -8,13 +8,13 @@ export const RIM_NODES: Record<RimId, string> = {
 }
 
 export const WHEELS_NODES: Record<WheelsId, string> = {
-  textured: 'WHEELS_1',
-  smooth: 'WHEELS_2',
+  textured: 'Wheels_1',
+  smooth: 'Wheels_2',
 }
 
 export const CHASSI_NODES: Record<ChassiId, string> = {
-  cyber: 'Chassi_1',
-  bubbly: 'Chassi_2',
+  cyber: 'Chassi_Cyber',
+  bubbly: 'Chassi_Bubble',
 }
 
 export const SWITCHABLE_NODES = Object.values(RIM_NODES)
