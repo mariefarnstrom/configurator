@@ -13,7 +13,7 @@ export const WHEELS_NODES: Record<WheelsId, string> = {
 }
 
 export const CHASSI_NODES: Record<ChassiId, string> = {
-  cyber: 'Chassi_Cyber',
+  cyber: 'Chassi_Cyber_Color',
   bubbly: 'Chassi_Bubble',
 }
 
