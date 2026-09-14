@@ -1,4 +1,5 @@
-import { Button } from "./Button";
+import { MoonIcon } from "../../assets/icons/MoonIcon";
+import { SunIcon } from "../../assets/icons/SunIcon";
 import { useConfiguratorStore } from "../../store/configuratorStore";
 
 type ThemeToggleProps = {
@@ -8,10 +9,11 @@ type ThemeToggleProps = {
 export function ThemeToggle({ className = "" }: ThemeToggleProps) {
 
     const setTheme = useConfiguratorStore((state) => state.setTheme);
+    const { theme } = useConfiguratorStore()
     return (
-        <div className={`p-2 rounded-[128px] border-2 flex gap-4 pointer-events-auto ${className}`}>
-            <Button variant="secondary" className="bg-white/10" onClick={() => setTheme("light")}>Day</Button>
-            <Button variant="secondary" className="shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]" onClick={() => setTheme("dark")}>Night</Button>
+        <div className={`w-48 bg-white/40 backdrop-blur-xs p-2 rounded-[128px] flex gap-4 pointer-events-auto ${className}`}>
+            <button className={`h-7 w-20 rounded-[128px] flex items-center justify-center gap-2 p-2 pr-4 ${theme === "light" ? "border border-[#999999] bg-white" : ""}`} onClick={() => setTheme("light")}><SunIcon />Light</button>
+            <button className={`h-7 w-20 rounded-[128px] flex items-center justify-center gap-2 p-2 pr-4 ${theme === "dark" ? "border border-[#999999] bg-white" : ""}`} onClick={() => setTheme("dark")}><MoonIcon />Dark</button>
         </div>
     )
 }
