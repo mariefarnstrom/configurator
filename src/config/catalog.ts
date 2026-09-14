@@ -1,4 +1,4 @@
-import type { ChassiId, RimId, WheelsId } from "../types/configurator";
+import type { ChassiId, ColorId, RimId, WheelsId } from "../types/configurator";
 
 export const BASE_PRICE = 1_250_000
 
@@ -15,4 +15,9 @@ export const WHEELS_OPTIONS: { id: WheelsId; label: string; price: number }[] = 
 export const CHASSI_OPTIONS: { id: ChassiId; label: string; price: number }[] = [
   { id: 'cyber', label: 'Cyber', price: 0 },
   { id: 'bubbly', label: 'Bubbly', price: 40_000 },
+]
+
+export const COLOR_OPTIONS: { id: ColorId; label: string; price: number }[] = [
+  { id: 'silver', label: 'Silver', price: 0 },
+  { id: 'black', label: 'Black', price: 0 },
 ]

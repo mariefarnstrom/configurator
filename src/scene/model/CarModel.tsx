@@ -1,7 +1,7 @@
 import { useGLTF } from "@react-three/drei"
-import type * as THREE from "three"
+import * as THREE from "three"
 import { useConfiguratorStore } from "../../store/configuratorStore"
-import { MODEL_URL, RIM_NODES, WHEELS_NODES, CHASSI_NODES } from "./modelContract";
+import { MODEL_URL, RIM_NODES, WHEELS_NODES, CHASSI_NODES, CHASSI_COLOR_MATERIALS, COLOR_LIBRARY_NODE } from "./modelContract";
 
 function applyVisibility<Id extends string>(
     scene: THREE.Object3D,
@@ -18,11 +18,21 @@ export function CarModel() {
     const chassi = useConfiguratorStore((state) => state.chassi);
     const wheels = useConfiguratorStore((state) => state.wheels);
     const rim = useConfiguratorStore((state) => state.rim);
-    const { scene } = useGLTF(MODEL_URL)
+    const color = useConfiguratorStore((state) => state.color);
+    const { scene, materials } = useGLTF(MODEL_URL)
 
     applyVisibility(scene, WHEELS_NODES, wheels)
     applyVisibility(scene, CHASSI_NODES, chassi)
     applyVisibility(scene, RIM_NODES, rim)
+
+    const colorLibrary = scene.getObjectByName(COLOR_LIBRARY_NODE)
+    if (colorLibrary) colorLibrary.visible = false
+
+    const chassiColorNode = scene.getObjectByName(CHASSI_NODES[chassi])
+    const colorMaterial = materials[CHASSI_COLOR_MATERIALS[chassi][color]]
+    if (chassiColorNode instanceof THREE.Mesh && colorMaterial) {
+        chassiColorNode.material = colorMaterial
+    }
 
     return <primitive object={scene} />
 }

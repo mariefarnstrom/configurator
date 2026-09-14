@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import type { ChassiId, OptionKey, RimId, WheelsId } from "../types/configurator";
+import type { ChassiId, ColorId, OptionKey, RimId, WheelsId } from "../types/configurator";
 import type { Theme } from "../types/configurator";
 
 export type ActiveOption = OptionKey | null
@@ -10,11 +10,13 @@ export type ConfiguratorState = {
     chassi: ChassiId,
     wheels: WheelsId,
     rim: RimId,
+    color: ColorId,
     setTheme: (theme: Theme) => void,
     setActiveOption: (option: ActiveOption) => void,
     setChassi: (chassi: ChassiId) => void,
     setWheels: (wheels: WheelsId) => void;
     setRim: (rim: RimId) => void;
+    setColor: (color: ColorId) => void;
 }
 
 export const useConfiguratorStore = create<ConfiguratorState>((set) => ({
@@ -23,6 +25,7 @@ export const useConfiguratorStore = create<ConfiguratorState>((set) => ({
     chassi: "cyber",
     wheels: "textured",
     rim: "standard",
+    color: "silver",
     setTheme: (theme) => set({
         theme: theme,
     }),
@@ -37,5 +40,8 @@ export const useConfiguratorStore = create<ConfiguratorState>((set) => ({
     }),
     setRim: (rim) => set({
         rim,
+    }),
+    setColor: (color) => set({
+        color,
     }),
 }))

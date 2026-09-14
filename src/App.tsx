@@ -50,12 +50,6 @@ function App() {
     //         }
     //     }))
 
-      // useEffect(() =>
-      //   scene.traverse((object) => {
-      //       if (object instanceof THREE.Mesh) {
-      //           console.log(object.name, object)
-      //       }
-      //   }))
 
     //     scene.traverse((object) => {
     //     console.log(object.type, object.name)
