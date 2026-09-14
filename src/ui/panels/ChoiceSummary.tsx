@@ -1,14 +1,13 @@
-import { Button } from "../primitives/Button"
 import { useConfiguratorStore } from "../../store/configuratorStore"
 import { selectTotalPrice } from "../../store/selectors";
 
 function PriceTag() {
     const totalPrice = useConfiguratorStore(selectTotalPrice);
-    return <p>{totalPrice.toLocaleString("sv-SE")} kr</p>;
+    return <p>$ {totalPrice.toLocaleString("sv-SE")}</p>;
 }
 
 export function ChoiceSummary() {
-    const { chassi, wheels, rim, color } = useConfiguratorStore()
+    const { chassi, wheels, rim, color, theme } = useConfiguratorStore()
     const selection = {
         body: chassi,
         color: color,
@@ -17,16 +16,67 @@ export function ChoiceSummary() {
     }
 
     return (
-        <div className="w-2xs h-48 justify-self-end self-end text-primary-text text-right">
-            <div className="border-b border-[#BABABA] py-2">
-                <h2 className="text-[22px] font-medium">CHOICE SUMMARY</h2>
-                <p><span className="text-secondary-text pr-2">Body</span> {selection.body}</p>
-                <p><span className="text-secondary-text pr-2">Color</span> {selection.color}</p>
-                <p><span className="text-secondary-text pr-2">Rim</span> {selection.rim}</p>
-                <p><span className="text-secondary-text pr-2">Tire</span> {selection.tire}</p>
+        <div
+            className={`
+                absolute bottom-0 left-0 w-dvw h-[86px]
+                text-sm text-first-summary-text
+                ${theme === "light" ? "light" : "dark"}
+            `}
+        >
+            <svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 1440 86"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M0 34C0 29.5817 3.58172 26 8 26H1144.01C1149.2 26 1154.24 24.3195 1158.4 21.2103L1180.32 4.78973C1184.47 1.68047 1189.52 0 1194.71 0H1432C1436.42 0 1440 3.58172 1440 8V86H0V34Z"
+                    fill={theme === "light" ? "white" : "black"}
+                />
+            </svg>
+
+            <div className="relative z-10 h-full w-2/3 pl-10 flex items-end justify-between">
+                <p className="px-6 py-5">
+                    Body
+                    <span className="text-second-summary-text pl-2">
+                        {selection.body}
+                    </span>
+                </p>
+
+                <p className="px-6 py-5">
+                    Color
+                    <span className="text-second-summary-text pl-2">
+                        {selection.color}
+                    </span>
+                </p>
+
+                <p className="px-6 py-5">
+                    Rim
+                    <span className="text-second-summary-text pl-2">
+                        {selection.rim}
+                    </span>
+                </p>
+
+                <p className="px-6 py-5">
+                    Tire
+                    <span className="text-second-summary-text pl-2">
+                        {selection.tire}
+                    </span>
+                </p>
             </div>
-            <p className="py-4"><PriceTag /></p>
-            <Button variant="primary">Place order</Button>
+
+            <div className="absolute right-0 top-0 z-10 w-1/6 h-full flex flex-col items-center justify-center">
+                <div className="flex flex-col items-end">
+                    <span className="text-2xl">
+                        <PriceTag />
+                    </span>
+
+
+                    <button className="text-sm">
+                        Continue →
+                    </button>
+                </div>
+            </div>
         </div>
     )
 }
