@@ -10,3 +10,21 @@ export function selectTotalPrice(state: ConfiguratorState): number {
 
     return BASE_PRICE + rimPrice + tirePrice + chassiPrice + colorPrice;
 }
+
+export type TechSpecs = {
+    power: number;
+    torque: number;
+    acceleration: number;
+    topSpeed: number;
+}
+
+export function selectTechSpecs(state: ConfiguratorState): TechSpecs {
+    const chassi = CHASSI_OPTIONS.find((option) => option.id === state.chassi);
+
+    return {
+        power: chassi?.power ?? 0,
+        torque: chassi?.torque ?? 0,
+        acceleration: chassi?.acceleration ?? 0,
+        topSpeed: chassi?.topSpeed ?? 0,
+    };
+}
