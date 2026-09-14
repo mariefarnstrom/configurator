@@ -12,9 +12,17 @@ export const WHEELS_OPTIONS: { id: WheelsId; label: string; price: number }[] = 
   { id: 'smooth', label: 'Smooth', price: 8_000 },
 ]
 
-export const CHASSI_OPTIONS: { id: ChassiId; label: string; price: number }[] = [
-  { id: 'cyber', label: 'Cyber', price: 0 },
-  { id: 'bubbly', label: 'Bubbly', price: 40_000 },
+export const CHASSI_OPTIONS: {
+  id: ChassiId;
+  label: string;
+  price: number;
+  power: number;
+  torque: number;
+  acceleration: number;
+  topSpeed: number;
+}[] = [
+  { id: 'cyber', label: 'Cyber', price: 0, power: 842, torque: 1240, acceleration: 2.8, topSpeed: 218 },
+  { id: 'bubbly', label: 'Bubbly', price: 40_000, power: 620, torque: 980, acceleration: 3.6, topSpeed: 195 },
 ]
 
 export const COLOR_OPTIONS: { id: ColorId; label: string; price: number }[] = [

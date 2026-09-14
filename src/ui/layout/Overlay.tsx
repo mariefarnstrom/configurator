@@ -9,11 +9,18 @@ export function Overlay() {
     const { theme } = useConfiguratorStore()
     return (
         <div className={`${theme === "dark" ? "dark" : ""} grid grid-cols-3 absolute inset-0 w-dvw h-dvh pointer-events-none p-[40px_72px_72px_72px]`}>
-            <div className="bg-amber-200 w-36 h-36"></div>
-            {/* <div className="bg-amber-500 w-14 h-14 justify-self-center"></div> */}
+            <hgroup className="text-primary-text flex flex-col gap-2">
+                <h1 className="uppercase font-heading pointer-events-auto font-bold text-5xl/[0.92] tracking-[-3px]">
+                Monster <br />
+                3000
+                </h1>
+                <p className="font-primary text-2xl/[0.92] tracking-normal opacity-50 font-semibold">
+                <span className="sr-only">Model Code: </span>R2360M
+                </p>
+            </hgroup>
             <ThemeToggle className="justify-self-center self-start" />
             <TechSpecPanel />
-            {/* <div className="bg-amber-800 w-36 h-36 justify-self-end"></div> */}
+            
             <div className="bg-amber-950 w-96 h-36 col-span-2 self-end"></div>
             <ChoiceSummary />
             <OptionDrawer />

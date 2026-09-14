@@ -3,6 +3,9 @@ import PowerIcon from "../../assets/icons/power.svg?react";
 import TorqueIcon from "../../assets/icons/torque.svg?react";
 import AccelerationIcon from "../../assets/icons/acceleration.svg?react";
 import TopSpeedIcon from "../../assets/icons/topSpeed.svg?react";
+import { useShallow } from "zustand/react/shallow";
+import { useConfiguratorStore } from "../../store/configuratorStore";
+import { selectTechSpecs } from "../../store/selectors";
 
 type TechSpec = {
   label: string;
@@ -10,37 +13,35 @@ type TechSpec = {
   Icon: ComponentType<SVGProps<SVGSVGElement>>;
 };
 
-const specs: TechSpec[] = [
-  { label: "Power", value: "842 Kw", Icon: PowerIcon },
-  { label: "Torque", value: "1240 Nm", Icon: TorqueIcon },
-  { label: "0-100km/h", value: "2.8s", Icon: AccelerationIcon },
-  { label: "Top Speed", value: "218 km/h", Icon: TopSpeedIcon },
-];
-
 export function TechSpecPanel() {
+  const techSpecs = useConfiguratorStore(useShallow(selectTechSpecs));
+
+  const specs: TechSpec[] = [
+    { label: "Power", value: `${techSpecs.power} Kw`, Icon: PowerIcon },
+    { label: "Torque", value: `${techSpecs.torque} Nm`, Icon: TorqueIcon },
+    { label: "0-100km/h", value: `${techSpecs.acceleration}s`, Icon: AccelerationIcon },
+    { label: "Top Speed", value: `${techSpecs.topSpeed} km/h`, Icon: TopSpeedIcon },
+  ];
+
   return (
-    <section className="justify-self-end self-start bg-gray-500 py-6 px-4 rounded-lg pointer-events-auto">
-      <h2 className="font-heading uppercase pb-4.5 text-[22px]/6">
-        Technical <br />
-        specification
+    <section className="justify-self-end self-start bg-gray-500 py-6 px-4 rounded-lg pointer-events-auto min w-59 text-primary-text">
+      <h2 className="font-primary pb-4.5 text-[18px]/[0.92] font-semibold tracking-[-1.26px]">
+        Technical specification
       </h2>
 
       <dl className="grid grid-cols-2 gap-1">
         {specs.map(({ label, value, Icon }) => (
           <div
             key={label}
-            className="bg-gray-400 rounded-xl aspect-76/86 px-3 py-1.75 flex flex-col justify-between"
+            className="bg-gray-400 rounded-lg aspect-square p-2 flex flex-col justify-between min-w-25"
           >
-            <div
-              aria-hidden="true"
-              className="aspect-square w-6 flex justify-center items-center"
-            >
-              <Icon />
-            </div>
 
-            <div>
-              <dt className="font-primary text-xs">{label}</dt>
-              <dd className="font-primary text-base">{value}</dd>
+            <Icon aria-hidden="true" className="stroke-current" />
+
+
+            <div className="font-primary font-medium">
+              <dt className="text-xs tracking-[-0.72px] opacity-50">{label}</dt>
+              <dd className="text-base tracking-[-0.96px]">{value}</dd>
             </div>
           </div>
         ))}
