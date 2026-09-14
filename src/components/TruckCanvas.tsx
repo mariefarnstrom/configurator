@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber"
-import { OrbitControls } from "@react-three/drei"
+import { Environment, OrbitControls } from "@react-three/drei"
 import { Hotspot } from "../scene/Hotspot"
 import { hotspots } from "../scene/hotspots"
 import { CarModel } from "../scene/model/CarModel"
@@ -21,6 +21,7 @@ export function TruckCanvas() {
                     rotation={[0, rotation, 0]}
                     position={[0, -1, 0]}
                 >
+                    <Environment files="/hdri/test_1.hdr" />
                     <CarModel />
                     {hotspots.map((hotspot) => (
                         <Hotspot
