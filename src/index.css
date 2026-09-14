@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 body {
-  background-color: #DEDEDE;
+  background-color: #B5B5B5;
 }
 
 body.dark {
-  background-color: #424242;
+  background-color: #1A1A1A;
 }
 
 @theme {
@@ -16,13 +16,25 @@ body.dark {
 :root {
   --primary-text: #000000;
   --secondary-text: #828282;
+  --first-summary-text: #666666;
+  --second-summary-text: #0C4A6A;
 }
 
 .dark {
   --primary-text: #ffffff;
   --secondary-text: #828282;
+  --first-summary-text: #999999;
+  --second-summary-text: #54B7EC;
 }
 
 .text-primary-text {
   color: var(--primary-text);
+}
+
+.text-first-summary-text {
+  color: var(--first-summary-text);
+}
+
+.text-second-summary-text {
+  color: var(--second-summary-text);
 }
