@@ -1,3 +1,4 @@
+import { SummaryShape } from "../../components/SummaryShape";
 import { useConfiguratorStore } from "../../store/configuratorStore"
 import { selectTotalPrice } from "../../store/selectors";
 
@@ -23,17 +24,7 @@ export function ChoiceSummary() {
                 ${theme === "light" ? "light" : "dark"}
             `}
         >
-            <svg
-                className="absolute inset-0 w-full h-full"
-                viewBox="0 0 1440 86"
-                preserveAspectRatio="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M0 34C0 29.5817 3.58172 26 8 26H1144.01C1149.2 26 1154.24 24.3195 1158.4 21.2103L1180.32 4.78973C1184.47 1.68047 1189.52 0 1194.71 0H1432C1436.42 0 1440 3.58172 1440 8V86H0V34Z"
-                    fill={theme === "light" ? "white" : "black"}
-                />
-            </svg>
+            <SummaryShape />
 
             <div className="relative z-10 h-full w-2/3 pl-10 flex items-end justify-between">
                 <p className="px-6 py-5">
@@ -73,7 +64,7 @@ export function ChoiceSummary() {
 
 
                     <button className="text-sm font-medium">
-                        Continue →
+                        Continue &gt;
                     </button>
                 </div>
             </div>

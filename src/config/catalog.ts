@@ -7,10 +7,28 @@ export const RIM_OPTIONS: { id: RimId; label: string; price: number }[] = [
   { id: 'sport', label: 'Sport', price: 25_000 },
 ]
 
-export const WHEELS_OPTIONS: { id: WheelsId; label: string; price: number }[] = [
-  { id: 'textured', label: 'Textured', price: 0 },
-  { id: 'smooth', label: 'Smooth', price: 8_000 },
-]
+export const WHEELS_OPTIONS: {
+  id: WheelsId;
+  label: string;
+  price: number;
+  acceleration: number;
+  topSpeed: number;
+}[] = [
+    {
+      id: 'textured',
+      label: 'Textured',
+      price: 0,
+      acceleration: 0,
+      topSpeed: 0,
+    },
+    {
+      id: 'smooth',
+      label: 'Smooth',
+      price: 8_000,
+      acceleration: -0.1,
+      topSpeed: 3,
+    },
+  ]
 
 export const CHASSI_OPTIONS: {
   id: ChassiId;
@@ -21,9 +39,9 @@ export const CHASSI_OPTIONS: {
   acceleration: number;
   topSpeed: number;
 }[] = [
-  { id: 'cyber', label: 'Cyber', price: 0, power: 842, torque: 1240, acceleration: 2.8, topSpeed: 218 },
-  { id: 'bubbly', label: 'Bubbly', price: 40_000, power: 620, torque: 980, acceleration: 3.6, topSpeed: 195 },
-]
+    { id: 'cyber', label: 'Cyber', price: 0, power: 842, torque: 1240, acceleration: 2.8, topSpeed: 218 },
+    { id: 'bubbly', label: 'Bubbly', price: 40_000, power: 620, torque: 980, acceleration: 3.6, topSpeed: 195 },
+  ]
 
 export const COLOR_OPTIONS: { id: ColorId; label: string; price: number }[] = [
   { id: 'silver', label: 'Silver', price: 0 },

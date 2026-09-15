@@ -11,6 +11,11 @@ body.dark {
 @theme {
   --font-heading: "Manrope Variable", sans-serif;
   --font-primary: "Inter Variable", sans-serif;
+
+  --color-hotspot: #0C4A6A80;
+  --color-container-big: rgba(255, 255, 255, 0.40);
+  --color-container-small: rgba(255, 255, 255, 0.20);
+  --color-text-secondary: #666666;
 }
 
 :root {
@@ -25,6 +30,11 @@ body.dark {
   --secondary-text: #828282;
   --first-summary-text: #999999;
   --second-summary-text: #54B7EC;
+
+  --color-hotspot: #54B7EC80;
+  --color-container-big: rgba(0, 0, 0, 0.20);
+  --color-container-small: rgb(102, 102, 102, 0.20);
+  --color-text-secondary: #999999;
 }
 
 .text-primary-text {
