@@ -3,7 +3,8 @@ import { useGLTF } from "@react-three/drei"
 import * as THREE from "three"
 import { useConfiguratorStore } from "../../store/configuratorStore"
 import { applyLightsMaterial } from "../applyLightsMaterial";
-import { MODEL_URL, RIM_NODES, WHEELS_NODES, CHASSI_NODES, CHASSI_COLOR_MATERIALS, COLOR_LIBRARY_NODE } from "./modelContract";
+import { applyChassiColorMaterial } from "../applyChassiColorMaterial";
+import { MODEL_URL, RIM_NODES, WHEELS_NODES, CHASSI_NODES, COLOR_LIBRARY_NODE } from "./modelContract";
 
 function applyVisibility<Id extends string>(
     scene: THREE.Object3D,
@@ -39,11 +40,7 @@ export function CarModel() {
     }, [scene, theme])
 
     useEffect(() => {
-        const chassiColorNode = scene.getObjectByName(CHASSI_NODES[chassi])
-        const colorMaterial = materials[CHASSI_COLOR_MATERIALS[chassi][color]]
-        if (chassiColorNode instanceof THREE.Mesh && colorMaterial) {
-            chassiColorNode.material = colorMaterial
-        }
+        applyChassiColorMaterial(scene, materials, chassi, color)
     }, [scene, materials, chassi, color])
 
     return <primitive object={scene} />

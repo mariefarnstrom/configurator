@@ -50,6 +50,8 @@ export const CHASSI_OPTIONS: (CatalogItem<ChassiId> & {
   ]
 
 export const COLOR_OPTIONS: CatalogItem<ColorId>[] = [
-  { id: 'silver', label: 'Silver', price: 0, image: "TEST" },
-  { id: 'black', label: 'Black', price: 0, image: "TEST" },
+  { id: 'matte-silver', label: 'Matte Silver', price: 0, image: "TEST" },
+  { id: 'matte-black', label: 'Matte Black', price: 0, image: "TEST" },
+  { id: 'glossy-silver', label: 'Glossy Silver', price: 0, image: "TEST" },
+  { id: 'glossy-black', label: 'Glossy Black', price: 0, image: "TEST" },
 ]
