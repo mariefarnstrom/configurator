@@ -15,6 +15,7 @@ export function TruckCanvas() {
 
     return (
         <div className={`h-dvh relative
+            cursor-grab
         ${(theme === "dark") ?
                 "bg-[radial-gradient(ellipse_120%_90%_at_50%_110%,#1d1d1d_0%,#2e2e2e_20%,#373737_45%,#282828_70%,#222222_100%)]"
                 :
@@ -24,6 +25,28 @@ export function TruckCanvas() {
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
             onPointerUp={handlePointerUp}>
+
+            {/* Ellipse */}
+            <div className={`
+            absolute
+            left-1/2
+            bottom-40
+            -translate-x-1/2
+            w-[min(1000px,80vw)]
+            h-[325px]
+            rounded-[50%]
+            border
+            border-[#ACACAC]
+            pointer-events-none
+            ${(theme === "light" ? "border-[#999999]" : "border-[#ACACAC]")}
+            `} />
+
+            {/* 360 symbol */}
+            <div className="absolute bottom-36.5 left-1/2 -translate-x-1/2 z-10 w-18 h-8 p-0 rounded-[128px] bg-white text-sm flex items-center justify-center gap-1 pr-1">
+                <img src="/icons/Globe.svg" alt="" className="h-4" />
+                <span>360</span>
+            </div>
+
             <Canvas camera={{ position: [0, 4, 13], fov: 45 }}>
                 <ambientLight intensity={1} />
                 <directionalLight position={[5, 5, 5]} />
