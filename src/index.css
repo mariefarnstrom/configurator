@@ -9,7 +9,6 @@ body.dark {
 }
 
 @theme {
-  --font-heading: "Manrope Variable", sans-serif;
   --font-primary: "Inter Variable", sans-serif;
 
   --color-hotspot: #0C4A6A80;
