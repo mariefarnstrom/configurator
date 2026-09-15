@@ -26,10 +26,10 @@ export function ChoiceSummary() {
         >
             <SummaryShape />
 
-            <div className="relative z-10 h-full w-2/3 pl-10 flex items-end justify-between">
+            <div className="relative z-10 h-full w-2/3 pl-10 grid grid-cols-4 items-end">
                 <p className="px-6 py-5">
                     Body
-                    <span className="text-second-summary-text pl-2 capitalize">
+                    <span className="text-second-summary-text pl-2">
                         {selection.body.charAt(0).toUpperCase() + selection.body.slice(1)}
                     </span>
                 </p>
