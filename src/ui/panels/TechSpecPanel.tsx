@@ -24,7 +24,7 @@ export function TechSpecPanel() {
   ];
 
   return (
-    <section className="justify-self-end self-start bg-gray-500 py-6 px-4 rounded-lg pointer-events-auto min w-59 text-primary-text">
+    <section className="justify-self-end self-start bg-container-big py-6 px-4 rounded-lg pointer-events-auto min w-59 text-primary-text backdrop-blur-xs">
       <h2 className="font-primary pb-4.5 text-[18px]/[0.92] font-semibold tracking-[-1.26px]">
         Technical specification
       </h2>
@@ -33,14 +33,14 @@ export function TechSpecPanel() {
         {specs.map(({ label, value, Icon }) => (
           <div
             key={label}
-            className="bg-gray-400 rounded-lg aspect-square p-2 flex flex-col justify-between min-w-25"
+            className="bg-container-small rounded-lg aspect-square p-2 flex flex-col justify-between min-w-25"
           >
 
             <Icon aria-hidden="true" className="stroke-current" />
 
 
             <div className="font-primary font-medium">
-              <dt className="text-xs tracking-[-0.72px] opacity-50">{label}</dt>
+              <dt className="text-xs text-text-secondary tracking-[-0.72px]">{label}</dt>
               <dd className="text-base tracking-[-0.96px]">{value}</dd>
             </div>
           </div>
