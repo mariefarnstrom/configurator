@@ -14,3 +14,10 @@ export type ChassiId = (typeof CHASSI_IDS)[number]
 
 export const COLOR_IDS = ['silver', 'black'] as const
 export type ColorId = (typeof COLOR_IDS)[number]
+
+export type OptionValueMap = {
+    wheels: WheelsId;
+    chassi: ChassiId;
+    rim: RimId;
+    color: ColorId;
+}

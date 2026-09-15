@@ -1,5 +1,4 @@
 import { ChoiceSummary } from "../panels/ChoiceSummary";
-import { OptionDrawer } from "../panels/OptionDrawer";
 import { TechSpecPanel } from "../panels/TechSpecPanel";
 import { ThemeToggle } from "../primitives/ThemeToggle";
 
@@ -21,7 +20,6 @@ export function Overlay() {
             <ThemeToggle className="justify-self-center self-start" />
             <TechSpecPanel />
             <ChoiceSummary />
-            <OptionDrawer />
         </div>
     )
 }

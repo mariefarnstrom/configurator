@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import type { ChassiId, ColorId, OptionKey, RimId, WheelsId } from "../types/configurator";
+import type { ChassiId, ColorId, OptionKey, OptionValueMap, RimId, WheelsId } from "../types/configurator";
 import type { Theme } from "../types/configurator";
 
 export type ActiveOption = OptionKey | null
@@ -13,10 +13,7 @@ export type ConfiguratorState = {
     color: ColorId,
     setTheme: (theme: Theme) => void,
     setActiveOption: (option: ActiveOption) => void,
-    setChassi: (chassi: ChassiId) => void,
-    setWheels: (wheels: WheelsId) => void;
-    setRim: (rim: RimId) => void;
-    setColor: (color: ColorId) => void;
+    setOption: <K extends OptionKey>(option: K, value: OptionValueMap[K]) => void,
 }
 
 export const useConfiguratorStore = create<ConfiguratorState>((set) => ({
@@ -32,16 +29,7 @@ export const useConfiguratorStore = create<ConfiguratorState>((set) => ({
     setActiveOption: (option) => set({
         activeOption: option,
     }),
-    setChassi: (chassi) => set({
-        chassi,
-    }),
-    setWheels: (wheels) => set({
-        wheels,
-    }),
-    setRim: (rim) => set({
-        rim,
-    }),
-    setColor: (color) => set({
-        color,
-    }),
+    setOption: (option, value) => set({
+        [option]: value,
+    } as unknown as Partial<ConfiguratorState>),
 }))
