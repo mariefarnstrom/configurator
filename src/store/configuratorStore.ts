@@ -22,7 +22,7 @@ export const useConfiguratorStore = create<ConfiguratorState>((set) => ({
     chassi: "cyber",
     wheels: "textured",
     rim: "standard",
-    color: "silver",
+    color: "matte-silver",
     setTheme: (theme) => set({
         theme: theme,
     }),

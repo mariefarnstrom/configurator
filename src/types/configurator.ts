@@ -12,7 +12,10 @@ export type WheelsId = (typeof WHEELS_IDS)[number]
 export const CHASSI_IDS = ['cyber', 'bubbly'] as const
 export type ChassiId = (typeof CHASSI_IDS)[number]
 
-export const COLOR_IDS = ['silver', 'black'] as const
+export const FINISH_IDS = ['matte', 'glossy'] as const
+export type FinishId = (typeof FINISH_IDS)[number]
+
+export const COLOR_IDS = ['matte-silver', 'matte-black', 'glossy-silver', 'glossy-black'] as const
 export type ColorId = (typeof COLOR_IDS)[number]
 
 export type OptionValueMap = {

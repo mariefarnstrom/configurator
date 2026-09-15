@@ -71,6 +71,10 @@ export function OptionDrawer({ option }: OptionDrawerProps) {
                         }}
                         className={`absolute top-1/2 left-1/2 aspect-square w-13.75 bg-white rounded-full transition-[transform,opacity] duration-400 ease-out motion-reduce:transition-none ${isSelected ? "outline-[1px] outline-offset-2 outline-solid outline-white" : " " }`}
                     >
+                        <span className="absolute inset-0 rounded-full overflow-hidden">
+                            <img src={item.image} alt={item.label} className="w-full h-full object-cover" />
+                        </span>
+
                         <span className="font-primary absolute top-1/2 left-full ml-3 -translate-y-1/2 text-sm whitespace-nowrap text-white">
                             {item.label}
                         </span>

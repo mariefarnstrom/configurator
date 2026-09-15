@@ -1,16 +1,20 @@
 import type { ChassiId, ColorId, RimId, WheelsId } from "../types/configurator";
 
+import wheelsStandard from "../assets/images/wheels/standard.png";
+import wheelsSport from "../assets/images/wheels/sport.png";
+
 export type CatalogItem<Id extends string> = {
   id: Id;
   label: string;
   price: number;
+  image: string;
 }
 
 export const BASE_PRICE = 1_250_000
 
 export const RIM_OPTIONS: CatalogItem<RimId>[] = [
-  { id: 'standard', label: 'Standard', price: 0 },
-  { id: 'sport', label: 'Sport', price: 25_000 },
+  { id: 'standard', label: 'Standard', price: 0, image: "TEST" },
+  { id: 'sport', label: 'Sport', price: 25_000, image: "TEST" },
 ]
 
 export const WHEELS_OPTIONS: (CatalogItem<WheelsId> & {
@@ -23,6 +27,7 @@ export const WHEELS_OPTIONS: (CatalogItem<WheelsId> & {
       price: 0,
       acceleration: 0,
       topSpeed: 0,
+      image: wheelsSport
     },
     {
       id: 'smooth',
@@ -30,6 +35,7 @@ export const WHEELS_OPTIONS: (CatalogItem<WheelsId> & {
       price: 8_000,
       acceleration: -0.1,
       topSpeed: 3,
+      image: wheelsStandard
     },
   ]
 
@@ -39,11 +45,13 @@ export const CHASSI_OPTIONS: (CatalogItem<ChassiId> & {
   acceleration: number;
   topSpeed: number;
 })[] = [
-    { id: 'cyber', label: 'Cyber', price: 0, power: 842, torque: 1240, acceleration: 2.8, topSpeed: 218 },
-    { id: 'bubbly', label: 'Bubbly', price: 40_000, power: 620, torque: 980, acceleration: 3.6, topSpeed: 195 },
+    { id: 'cyber', label: 'Cyber', price: 0, power: 842, torque: 1240, acceleration: 2.8, topSpeed: 218, image: "TEST" },
+    { id: 'bubbly', label: 'Bubbly', price: 40_000, power: 620, torque: 980, acceleration: 3.6, topSpeed: 195, image: "TEST" },
   ]
 
 export const COLOR_OPTIONS: CatalogItem<ColorId>[] = [
-  { id: 'silver', label: 'Silver', price: 0 },
-  { id: 'black', label: 'Black', price: 0 },
+  { id: 'matte-silver', label: 'Matte Silver', price: 0, image: "TEST" },
+  { id: 'matte-black', label: 'Matte Black', price: 0, image: "TEST" },
+  { id: 'glossy-silver', label: 'Glossy Silver', price: 0, image: "TEST" },
+  { id: 'glossy-black', label: 'Glossy Black', price: 0, image: "TEST" },
 ]
