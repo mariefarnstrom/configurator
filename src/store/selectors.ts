@@ -20,11 +20,21 @@ export type TechSpecs = {
 
 export function selectTechSpecs(state: ConfiguratorState): TechSpecs {
     const chassi = CHASSI_OPTIONS.find((option) => option.id === state.chassi);
+    const wheels = WHEELS_OPTIONS.find((option) => option.id === state.wheels);
+
+    const roundToOneDecimal = (value: number) =>
+        Number(value.toFixed(1))
 
     return {
         power: chassi?.power ?? 0,
         torque: chassi?.torque ?? 0,
-        acceleration: chassi?.acceleration ?? 0,
-        topSpeed: chassi?.topSpeed ?? 0,
+        acceleration:
+            roundToOneDecimal(
+                (chassi?.acceleration ?? 0) +
+                (wheels?.acceleration ?? 0)
+            ),
+        topSpeed:
+            (chassi?.topSpeed ?? 0) +
+            (wheels?.topSpeed ?? 0),
     };
 }
