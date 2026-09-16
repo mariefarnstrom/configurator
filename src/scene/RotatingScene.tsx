@@ -39,6 +39,7 @@ export function RotatingScene({
             {hotspots.map((hotspot) => (
                 <Hotspot
                     key={hotspot.id}
+                    id={hotspot.id}
                     position={hotspot.position}
                     option={hotspot.option}
                 />

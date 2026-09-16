@@ -6,27 +6,37 @@ import type { OptionKey } from "../types/configurator";
 import PlusIcon from "../assets/icons/plus.svg?react";
 
 type HotspotProps = {
+    id: string;
     position: [number, number, number];
     option: OptionKey;
 };
 
 
-export function Hotspot({ position, option }: HotspotProps) {
+export function Hotspot({ id, position, option }: HotspotProps) {
+
     const setActiveOption = useConfiguratorStore((state) => state.setActiveOption);
-
     const activeOption = useConfiguratorStore((state) => state.activeOption);
-
-    const isOpen = activeOption === option;
+    const activeHotspot = useConfiguratorStore((state) => state.activeHotspot);
+    const setActiveHotspot = useConfiguratorStore((state) => state.setActiveHotspot);
+    const isOpen = activeOption === option && activeHotspot === id;
 
     return (
-        <Html position={position}>
+        <Html position={position} occlude>
             <div className="relative aspect-square w-11.5">
-                <OptionDrawer option={option} />
+                {isOpen && <OptionDrawer option={option} />}
 
                 <button
                     aria-expanded={isOpen}
                     className="bg-hotspot absolute inset-0 flex justify-center items-center rounded-full"
-                    onClick={() => setActiveOption(isOpen ? null : option)}
+                    onClick={() => {
+                        if (isOpen) {
+                            setActiveOption(null);
+                            setActiveHotspot(null);
+                        } else {
+                            setActiveOption(option);
+                            setActiveHotspot(id);
+                        }
+                    }}
                 >
                     <PlusIcon
                         className={`transition-transform duration-300 ease-out motion-reduce:transition-none ${isOpen ? "rotate-45" : "rotate-0"
