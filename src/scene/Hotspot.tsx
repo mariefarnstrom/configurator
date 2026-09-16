@@ -1,14 +1,11 @@
 import { Html } from "@react-three/drei";
 import { useConfiguratorStore } from "../store/configuratorStore";
 import { OptionDrawer } from "../ui/panels/OptionDrawer";
-import type { OptionKey } from "../types/configurator";
+import type { HotspotConfig } from "./hotspots";
 
 import PlusIcon from "../assets/icons/plus.svg?react";
 
-type HotspotProps = {
-    position: [number, number, number];
-    option: OptionKey;
-};
+type HotspotProps = Omit<HotspotConfig, "id">
 
 
 export function Hotspot({ position, option }: HotspotProps) {
