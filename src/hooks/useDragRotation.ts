@@ -15,7 +15,7 @@ export function useDragRotation() {
     const handlePointerMove = (e: React.PointerEvent) => {
         if (!isDragging.current) return
         const deltaX = e.clientX - lastX.current
-        rotation.current += deltaX * 0.01
+        rotation.current += deltaX * 0.03
         lastX.current = (e.clientX)
     }
 
