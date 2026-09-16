@@ -1,6 +1,7 @@
 import { SummaryShape } from "../../components/SummaryShape";
 import { useConfiguratorStore } from "../../store/configuratorStore"
 import { selectTotalPrice } from "../../store/selectors";
+import { COLOR_OPTIONS } from "../../config/catalog";
 
 function PriceTag() {
     const totalPrice = useConfiguratorStore(selectTotalPrice);
@@ -16,6 +17,10 @@ export function ChoiceSummary() {
         tire: wheels,
     }
 
+    const selectedColor = COLOR_OPTIONS.find(
+        (option) => option.id === selection.color
+    )
+
     return (
         <div
             className={`
@@ -26,7 +31,7 @@ export function ChoiceSummary() {
         >
             <SummaryShape />
 
-            <div className="relative z-10 h-full w-2/3 pl-10 grid grid-cols-4 items-end">
+            <div className="relative z-10 h-full w-4/5 pl-10 grid grid-cols-4 items-end">
                 <p className="px-6 py-5">
                     Body
                     <span className="text-second-summary-text pl-2">
@@ -37,7 +42,7 @@ export function ChoiceSummary() {
                 <p className="px-6 py-5">
                     Color
                     <span className="text-second-summary-text pl-2">
-                        {selection.color.charAt(0).toUpperCase() + selection.color.slice(1)}
+                        {selectedColor?.label}
                     </span>
                 </p>
 

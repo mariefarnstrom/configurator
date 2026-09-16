@@ -8,18 +8,18 @@ import { useConfiguratorStore } from "../store/configuratorStore"
 
 export function TruckCanvas() {
 
-    const { handlePointerDown, handlePointerMove, handlePointerUp, rotation } = useDragRotation()
+    const { handlePointerDown, handlePointerMove, handlePointerUp, rotation, isDragging } = useDragRotation()
 
     const { theme } = useConfiguratorStore()
     const hdri = (theme === "light") ? "/hdri/HDRI_Day.hdr" : "/hdri/HDRI_Night.hdr"
 
     return (
         <div className={`h-dvh relative
-            cursor-grab
+            ${!isDragging ? "cursor-grab" : "cursor-grabbing"}
         ${(theme === "dark") ?
-                "bg-[radial-gradient(ellipse_120%_90%_at_50%_110%,#1d1d1d_0%,#2e2e2e_20%,#373737_45%,#282828_70%,#222222_100%)]"
+                "bg-[radial-gradient(ellipse_120%_90%_at_50%_110%,#323232_0%,#2b2b2b_20%,#2A2A2A_45%,#202020_70%,#1A1A1A_100%)]"
                 :
-                "bg-[radial-gradient(ellipse_125%_95%_at_50%_115%,#DDDDDD_0%,#D5D5D5_20%,#C5C5C5_40%,#B0B0B0_65%,#999999_100%)]"
+                "bg-[radial-gradient(ellipse_125%_95%_at_50%_115%,#dbdbdb_0%,#e4e4e4_20%,#e4e4e4_40%,#b8b8b8_75%,#999999_100%)]"
             }
         `}
             onPointerDown={handlePointerDown}
@@ -36,7 +36,6 @@ export function TruckCanvas() {
             h-[325px]
             rounded-[50%]
             border
-            border-[#ACACAC]
             pointer-events-none
             ${(theme === "light" ? "border-[#999999]" : "border-[#ACACAC]")}
             `} />
