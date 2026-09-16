@@ -9,7 +9,7 @@ type ThemeToggleProps = {
 export function ThemeToggle({ className = "" }: ThemeToggleProps) {
 
     const setTheme = useConfiguratorStore((state) => state.setTheme);
-    const { theme } = useConfiguratorStore()
+    const theme = useConfiguratorStore((state) => state.theme);
     return (
         <div
             className={`w-48 p-2 rounded-[128px] flex gap-4 pointer-events-auto backdrop-blur-xs ${theme === "light" ? "bg-white/40" : "bg-black/30"

@@ -5,7 +5,7 @@ import { ThemeToggle } from "../primitives/ThemeToggle";
 import { useConfiguratorStore } from "../../store/configuratorStore";
 
 export function Overlay() {
-    const { theme } = useConfiguratorStore()
+    const theme = useConfiguratorStore((state) => state.theme)
     return (
         <div className={`${theme === "dark" ? "dark" : ""} grid grid-cols-3 absolute inset-0 w-dvw h-dvh pointer-events-none p-[40px_72px_72px_72px]`}>
             <hgroup className="text-primary-text flex flex-col gap-2">

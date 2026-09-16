@@ -9,7 +9,11 @@ function PriceTag() {
 }
 
 export function ChoiceSummary() {
-    const { chassi, wheels, rim, color, theme } = useConfiguratorStore()
+    const chassi = useConfiguratorStore((state) => state.chassi)
+    const wheels = useConfiguratorStore((state) => state.wheels)
+    const rim = useConfiguratorStore((state) => state.rim)
+    const color = useConfiguratorStore((state) => state.color)
+    const theme = useConfiguratorStore((state) => state.theme)
     const selection = {
         body: chassi,
         color: color,
