@@ -6,7 +6,7 @@ import { RotatingScene } from "../scene/RotatingScene"
 
 export function TruckCanvas() {
 
-    const { handlePointerDown, handlePointerMove, handlePointerUp, rotation, isDragging, isDraggingState } = useDragRotation()
+    const { handlePointerDown, handlePointerMove, handlePointerUp, rotationRef, isDraggingRef, isDraggingState } = useDragRotation()
 
     const { theme, activeOption } = useConfiguratorStore()
     const hdri = (theme === "light") ? "/hdri/HDRI_Day.hdr" : "/hdri/HDRI_Night.hdr"
@@ -51,8 +51,8 @@ export function TruckCanvas() {
                 <Environment files={hdri} />
 
                 <RotatingScene
-                    rotation={rotation}
-                    isDragging={isDragging}
+                    rotationRef={rotationRef}
+                    isDraggingRef={isDraggingRef}
                     activeOption={activeOption}
                 />
 

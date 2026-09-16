@@ -8,14 +8,14 @@ import { hotspots } from "./hotspots"
 import { useConfiguratorStore } from "../store/configuratorStore"
 
 type RotatingSceneProps = {
-    rotation: React.RefObject<number>
-    isDragging: React.RefObject<boolean>
+    rotationRef: React.RefObject<number>
+    isDraggingRef: React.RefObject<boolean>
     activeOption: string | null
 }
 
 export function RotatingScene({
-    rotation,
-    isDragging,
+    rotationRef,
+    isDraggingRef,
     activeOption,
 }: RotatingSceneProps) {
     const groupRef = useRef<THREE.Group>(null)
@@ -24,11 +24,11 @@ export function RotatingScene({
     useFrame((_, delta) => {
         if (!groupRef.current) return
 
-        if (!activeOption && !isDragging.current) {
-            rotation.current -= delta * 0.00
+        if (!activeOption && !isDraggingRef.current) {
+            rotationRef.current -= delta * 0.03
         }
 
-        groupRef.current.rotation.y = rotation.current
+        groupRef.current.rotation.y = rotationRef.current
     })
 
     return (
