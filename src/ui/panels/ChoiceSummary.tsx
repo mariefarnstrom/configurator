@@ -25,7 +25,7 @@ export function ChoiceSummary() {
         <div
             className={`
                 absolute bottom-0 left-0 w-dvw h-[86px]
-                text-sm text-first-summary-text font-primary font-medium
+                text-sm text-first-summary-text font-primary font-medium pointer-events-auto
                 ${theme === "light" ? "light" : "dark"}
             `}
         >
