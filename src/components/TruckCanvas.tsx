@@ -1,21 +1,19 @@
-import { Canvas } from "@react-three/fiber"
+import { Canvas, useFrame } from "@react-three/fiber"
 import { Environment, OrbitControls } from "@react-three/drei"
-import { Hotspot } from "../scene/Hotspot"
-import { hotspots } from "../scene/hotspots"
-import { CarModel } from "../scene/model/CarModel"
 import { useDragRotation } from "../hooks/useDragRotation"
 import { useConfiguratorStore } from "../store/configuratorStore"
+import { RotatingScene } from "../scene/RotatingScene"
 
 export function TruckCanvas() {
 
-    const { handlePointerDown, handlePointerMove, handlePointerUp, rotation, isDragging } = useDragRotation()
+    const { handlePointerDown, handlePointerMove, handlePointerUp, rotation, isDragging, isDraggingState } = useDragRotation()
 
-    const { theme } = useConfiguratorStore()
+    const { theme, activeOption } = useConfiguratorStore()
     const hdri = (theme === "light") ? "/hdri/HDRI_Day.hdr" : "/hdri/HDRI_Night.hdr"
 
     return (
         <div className={`h-dvh relative
-            ${!isDragging ? "cursor-grab" : "cursor-grabbing"}
+            ${!isDraggingState ? "cursor-grab" : "cursor-grabbing"}
         ${(theme === "dark") ?
                 "bg-[radial-gradient(ellipse_120%_90%_at_50%_110%,#323232_0%,#2b2b2b_20%,#2A2A2A_45%,#202020_70%,#1A1A1A_100%)]"
                 :
@@ -52,19 +50,11 @@ export function TruckCanvas() {
                 <directionalLight position={[5, 5, 5]} />
                 <Environment files={hdri} />
 
-                <group
-                    rotation={[0, rotation, 0]}
-                    position={[0, -1, 0]}
-                >
-                    <CarModel />
-                    {hotspots.map((hotspot) => (
-                        <Hotspot
-                            key={hotspot.id}
-                            position={hotspot.position}
-                            option={hotspot.option}
-                        />
-                    ))}
-                </group>
+                <RotatingScene
+                    rotation={rotation}
+                    isDragging={isDragging}
+                    activeOption={activeOption}
+                />
 
                 <OrbitControls
                     enableRotate={false}

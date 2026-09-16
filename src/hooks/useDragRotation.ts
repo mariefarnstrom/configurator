@@ -1,29 +1,33 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 
 export function useDragRotation() {
-    const [rotation, setRotation] = useState(5)
-    const [isDragging, setIsDragging] = useState(false)
-    const [lastX, setLastX] = useState(0)
+    const rotation = useRef(5)
+    const isDragging = useRef(false)
+    const [isDraggingState, setIsDraggingState] = useState(false)
+    const lastX = useRef(0)
 
     const handlePointerDown = (e: React.PointerEvent) => {
-        setIsDragging(true)
-        setLastX(e.clientX)
+        isDragging.current = true
+        setIsDraggingState(true)
+        lastX.current = (e.clientX)
     }
 
     const handlePointerMove = (e: React.PointerEvent) => {
-        if (!isDragging) return
-        const deltaX = e.clientX - lastX
-        setRotation((current) => current + deltaX * 0.01)
-        setLastX(e.clientX)
+        if (!isDragging.current) return
+        const deltaX = e.clientX - lastX.current
+        rotation.current += deltaX * 0.01
+        lastX.current = (e.clientX)
     }
 
     const handlePointerUp = () => {
-        setIsDragging(false)
+        isDragging.current = false
+        setIsDraggingState(false)
     }
 
     return {
         rotation,
         isDragging,
+        isDraggingState,
         handlePointerDown,
         handlePointerMove,
         handlePointerUp,
