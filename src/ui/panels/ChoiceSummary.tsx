@@ -31,7 +31,7 @@ export function ChoiceSummary() {
         >
             <SummaryShape />
 
-            <div className="relative z-10 h-full w-2/3 pl-10 grid grid-cols-4 items-end">
+            <div className="relative z-10 h-full w-4/5 pl-10 grid grid-cols-4 items-end">
                 <p className="px-6 py-5">
                     Body
                     <span className="text-second-summary-text pl-2">
