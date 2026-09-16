@@ -25,13 +25,12 @@ export function Hotspot({ position, option }: HotspotProps) {
 
                 <button
                     aria-expanded={isOpen}
-                    className="bg-hotspot absolute inset-0 flex justify-center items-center rounded-full"
+                    className="bg-accent/60 absolute inset-0 flex justify-center items-center rounded-full"
                     onClick={() => setActiveOption(isOpen ? null : option)}
                 >
                     <PlusIcon
-                        className={`transition-transform duration-300 ease-out motion-reduce:transition-none ${
-                            isOpen ? "rotate-45" : "rotate-0"
-                        }`}
+                        className={`transition-transform duration-300 ease-out motion-reduce:transition-none ${isOpen ? "rotate-45" : "rotate-0"
+                            }`}
                     />
                 </button>
             </div>
