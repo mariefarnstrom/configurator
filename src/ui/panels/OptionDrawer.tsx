@@ -94,7 +94,7 @@ export function OptionDrawer({ option }: OptionDrawerProps) {
                             opacity: isOpen ? 1 : 0,
                             transitionDelay: `${isOpen ? index * 60 : 0}ms`,
                         }}
-                        className={`absolute top-1/2 left-1/2 aspect-square w-13.75 bg-white rounded-full transition-[transform,opacity] duration-400 ease-out motion-reduce:transition-none ${isSelected ? "outline-[1px] outline-offset-2 outline-solid outline-white" : " " }`}
+                        className={`absolute top-1/2 left-1/2 aspect-square w-13.75 rounded-full transition-[transform,opacity] duration-400 ease-out motion-reduce:transition-none ${isSelected ? "outline-[1px] outline-offset-2 outline-solid outline-white" : " " }`}
                     >
                         <span className="absolute inset-0 rounded-full overflow-hidden">
                             <img src={item.image} alt={item.label} className="w-full h-full object-cover" />

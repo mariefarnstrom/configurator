@@ -29,23 +29,21 @@ export function TechSpecPanel() {
         Technical specification
       </h2>
 
-      <dl className="grid grid-cols-2 gap-1">
+      <div className="grid grid-cols-2 gap-1">
         {specs.map(({ label, value, Icon }) => (
           <div
             key={label}
             className="bg-container-small rounded-lg aspect-square p-2 flex flex-col justify-between min-w-25"
           >
-
             <Icon aria-hidden="true" className="stroke-current" />
 
-
-            <div className="font-primary font-medium">
+            <dl className="font-primary font-medium">
               <dt className="text-xs text-text-secondary tracking-[-0.72px]">{label}</dt>
               <dd className="text-base tracking-[-0.96px]">{value}</dd>
-            </div>
+            </dl>
           </div>
         ))}
-      </dl>
+      </div>
     </section>
   );
 }
