@@ -3,13 +3,15 @@ import { useConfiguratorStore } from "../../store/configuratorStore"
 import { selectTotalPrice } from "../../store/selectors";
 import { COLOR_OPTIONS } from "../../config/catalog";
 
-function PriceTag() {
-    const totalPrice = useConfiguratorStore(selectTotalPrice);
-    return <p>$ {totalPrice.toLocaleString("sv-SE")}</p>;
-}
-
 export function ChoiceSummary() {
     const { chassi, wheels, rim, color, theme } = useConfiguratorStore()
+    const totalPrice = useConfiguratorStore(selectTotalPrice);
+
+    const priceTag = totalPrice.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    })
+
     const selection = {
         body: chassi,
         color: color,
@@ -64,12 +66,15 @@ export function ChoiceSummary() {
             <div className="absolute right-0 top-0 z-10 w-1/6 h-full flex flex-col items-center justify-center">
                 <div className="flex flex-col items-end text-primary-text font-semibold">
                     <span className="text-2xl">
-                        <PriceTag />
+                        ${priceTag}
                     </span>
 
 
                     <button className="text-sm font-medium">
                         Continue &gt;
+                        <span className="sr-only">
+                            Selected configuration costs {priceTag} dollars
+                        </span>
                     </button>
                 </div>
             </div>
