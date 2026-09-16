@@ -16,7 +16,7 @@ export const hotspots = [
     },
     {
         id: "color",
-        position: [0.5, 2.7, 1.5] as [number, number, number],
+        position: [0.5, 3.5, 1.5] as [number, number, number],
         option: "color" as const,
     },
 ]

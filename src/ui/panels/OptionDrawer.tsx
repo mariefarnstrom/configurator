@@ -23,20 +23,44 @@ const OPTION_LISTS: Record<OptionKey, OptionItem[]> = {
     color: COLOR_OPTIONS,
 }
 
-const RADIUS = 57;
-const START_ANGLE = -85;
-const SPREAD = 75;
+const RADIUS_BASE = 57;
+const RADIUS_GROWTH = 10;
+
+const START_ANGLE_BASE = -90;
+const START_ANGLE_SHIFT = 35;
+
+const ANGLE_STEP_BASE = 75;
+const ANGLE_STEP_SHRINK = 15;
+
+//increase radius by every extra alternative
+function getRadius(count: number) {
+    return RADIUS_BASE + Math.max(0, count - 2) * RADIUS_GROWTH;
+}
+
+//reduce angle by every extra alternative
+function getAngleStep(count: number) {
+    return ANGLE_STEP_BASE - Math.max(0, count - 2) * ANGLE_STEP_SHRINK;
+}
+
+//move angle counterclockwise by every extra alternative
+function getStartAngle(count: number) {
+    return START_ANGLE_BASE - Math.max(0, count - 2) * START_ANGLE_SHIFT;
+}
 
 function fanOffset(index: number, count: number) {
+    const radius = getRadius(count);
+    const angleStep = getAngleStep(count);
+    const startAngle = getStartAngle(count);
+    const spread = angleStep * (count - 1);
+
     const angle = count === 1
-        ? START_ANGLE + SPREAD / 2
-        : START_ANGLE + (SPREAD * index) / (count - 1);
+        ? startAngle + spread / 2
+        : startAngle + angleStep * index;
 
     const radians = (angle * Math.PI) / 180;
-
     return {
-        x: Math.cos(radians) * RADIUS,
-        y: Math.sin(radians) * RADIUS,
+        x: Math.cos(radians) * radius,
+        y: Math.sin(radians) * radius,
     };
 }
 
@@ -54,6 +78,7 @@ export function OptionDrawer({ option }: OptionDrawerProps) {
             {options.map((item, index) => {
                 const { x, y } = fanOffset(index, options.length);
                 const isSelected = selectedId === item.id;
+                const isRightSide = x >= 0;
 
                 return (
                     <button
@@ -75,7 +100,10 @@ export function OptionDrawer({ option }: OptionDrawerProps) {
                             <img src={item.image} alt={item.label} className="w-full h-full object-cover" />
                         </span>
 
-                        <span className="font-primary absolute top-1/2 left-full ml-3 -translate-y-1/2 text-sm whitespace-nowrap text-white">
+                        <span className={`font-primary absolute top-1/20 -translate-y-1/2 text-sm whitespace-nowrap text-white ${
+                                isRightSide ? "left-full ml-0.5" : "right-full mr-0.5"
+                            }`}
+                        >
                             {item.label}
                         </span>
                     </button>
