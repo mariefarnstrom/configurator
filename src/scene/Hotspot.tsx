@@ -29,9 +29,8 @@ export function Hotspot({ position, option }: HotspotProps) {
                     onClick={() => setActiveOption(isOpen ? null : option)}
                 >
                     <PlusIcon
-                        className={`transition-transform duration-300 ease-out motion-reduce:transition-none ${
-                            isOpen ? "rotate-45" : "rotate-0"
-                        }`}
+                        className={`transition-transform duration-300 ease-out motion-reduce:transition-none ${isOpen ? "rotate-45" : "rotate-0"
+                            }`}
                     />
                 </button>
             </div>
