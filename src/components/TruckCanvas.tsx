@@ -1,4 +1,4 @@
-import { Canvas, useFrame } from "@react-three/fiber"
+import { Canvas } from "@react-three/fiber"
 import { Environment, OrbitControls } from "@react-three/drei"
 import { useDragRotation } from "../hooks/useDragRotation"
 import { useConfiguratorStore } from "../store/configuratorStore"
