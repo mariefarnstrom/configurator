@@ -1,12 +1,12 @@
-import type { OptionKey } from "../types/configurator";
+import type { OptionKey, HotspotId } from "../types/configurator";
 
 export type HotspotConfig = {
-  id: string;
+  id: HotspotId;
   position: [number, number, number];
   option: OptionKey;
 };
 
-export const hotspots = [
+export const hotspots: HotspotConfig[] = [
     {
         id: "wheels-left",
         position: [1.6, 1.7, 1.7] as [number, number, number],
