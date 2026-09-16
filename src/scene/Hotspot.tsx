@@ -27,7 +27,7 @@ export function Hotspot({ id, position, option }: HotspotProps) {
 
                 <button
                     aria-expanded={isOpen}
-                    className="bg-hotspot absolute inset-0 flex justify-center items-center rounded-full"
+                    className="bg-accent/60 absolute inset-0 flex justify-center items-center rounded-full"
                     onClick={() => {
                         if (isOpen) {
                             setActiveOption(null);

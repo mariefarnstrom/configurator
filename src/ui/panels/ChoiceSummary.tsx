@@ -25,7 +25,7 @@ export function ChoiceSummary() {
         <div
             className={`
                 absolute bottom-0 left-0 w-dvw h-[86px]
-                text-sm text-first-summary-text font-primary font-medium
+                text-sm text-text-secondary font-primary font-medium
                 ${theme === "light" ? "light" : "dark"}
             `}
         >
@@ -34,28 +34,28 @@ export function ChoiceSummary() {
             <div className="relative z-10 h-full w-4/5 pl-10 grid grid-cols-4 items-end">
                 <p className="px-6 py-5">
                     Body
-                    <span className="text-second-summary-text pl-2">
+                    <span className="text-accent pl-2">
                         {selection.body.charAt(0).toUpperCase() + selection.body.slice(1)}
                     </span>
                 </p>
 
                 <p className="px-6 py-5">
                     Color
-                    <span className="text-second-summary-text pl-2">
+                    <span className="text-accent pl-2">
                         {selectedColor?.label}
                     </span>
                 </p>
 
                 <p className="px-6 py-5">
                     Rim
-                    <span className="text-second-summary-text pl-2">
+                    <span className="text-accent pl-2">
                         {selection.rim.charAt(0).toUpperCase() + selection.rim.slice(1)}
                     </span>
                 </p>
 
                 <p className="px-6 py-5">
                     Tire
-                    <span className="text-second-summary-text pl-2">
+                    <span className="text-accent pl-2">
                         {selection.tire.charAt(0).toUpperCase() + selection.tire.slice(1)}
                     </span>
                 </p>
