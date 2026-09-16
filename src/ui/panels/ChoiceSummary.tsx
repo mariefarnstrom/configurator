@@ -5,7 +5,13 @@ import { COLOR_OPTIONS } from "../../config/catalog";
 
 function PriceTag() {
     const totalPrice = useConfiguratorStore(selectTotalPrice);
-    return <p>$ {totalPrice.toLocaleString("sv-SE")}</p>;
+    return <p>
+        ${totalPrice.toLocaleString("en-US",
+            {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            })}
+    </p>;
 }
 
 export function ChoiceSummary() {
