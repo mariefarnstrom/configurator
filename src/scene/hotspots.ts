@@ -1,3 +1,11 @@
+import type { OptionKey } from "../types/configurator";
+
+export type HotspotConfig = {
+  id: string;
+  position: [number, number, number];
+  option: OptionKey;
+};
+
 export const hotspots = [
     {
         id: "wheels-left",

@@ -1,9 +1,9 @@
 import { useConfiguratorStore } from "../../store/configuratorStore";
 import { CHASSI_OPTIONS, COLOR_OPTIONS, RIM_OPTIONS, WHEELS_OPTIONS } from "../../config/catalog";
 import type { CatalogItem } from "../../config/catalog";
-import type { ChassiId, ColorId, OptionKey, RimId, WheelsId } from "../../types/configurator";
+import type { OptionValueMap, OptionKey } from "../../types/configurator";
 
-type OptionItem = CatalogItem<WheelsId | ChassiId | RimId | ColorId>;
+type OptionItem = CatalogItem<OptionValueMap[OptionKey]>;
 
 type OptionDrawerProps = {
     option: OptionKey;
