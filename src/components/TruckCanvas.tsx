@@ -8,14 +8,14 @@ import { useConfiguratorStore } from "../store/configuratorStore"
 
 export function TruckCanvas() {
 
-    const { handlePointerDown, handlePointerMove, handlePointerUp, rotation } = useDragRotation()
+    const { handlePointerDown, handlePointerMove, handlePointerUp, rotation, isDragging } = useDragRotation()
 
     const { theme } = useConfiguratorStore()
     const hdri = (theme === "light") ? "/hdri/HDRI_Day.hdr" : "/hdri/HDRI_Night.hdr"
 
     return (
         <div className={`h-dvh relative
-            cursor-grab
+            ${!isDragging ? "cursor-grab" : "cursor-grabbing"}
         ${(theme === "dark") ?
                 "bg-[radial-gradient(ellipse_120%_90%_at_50%_110%,#1d1d1d_0%,#2e2e2e_20%,#373737_45%,#282828_70%,#222222_100%)]"
                 :

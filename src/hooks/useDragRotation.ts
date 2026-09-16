@@ -23,6 +23,7 @@ export function useDragRotation() {
 
     return {
         rotation,
+        isDragging,
         handlePointerDown,
         handlePointerMove,
         handlePointerUp,
