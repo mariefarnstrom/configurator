@@ -1,13 +1,13 @@
 import type { ChassiId, ColorId, RimId, WheelsId } from "../types/configurator";
 
-import wheelsStandard from "../assets/images/wheels/standard.png";
-import wheelsSport from "../assets/images/wheels/sport.png";
+import wheelsSmooth from "../assets/images/wheels/smooth.png";
+import wheelsTextured from "../assets/images/wheels/textured.png";
 
 import rimSport from "../assets/images/rims/sport.png";
 import rimStandard from "../assets/images/rims/standard.png";
 
-import chassiCyber from "../assets/images/chassis/chassi_cyber.png";
-import chassiBubble from "../assets/images/chassis/chassi_bubble.png";
+import chassiCyber from "../assets/images/chassis/chassi_cyber.webp";
+import chassiBubble from "../assets/images/chassis/chassi_bubble.webp";
 
 import glossyBlack from "../assets/images/colors/glossy_black.png";
 import matteBlack from "../assets/images/colors/matte_black.png";
@@ -25,7 +25,7 @@ export const BASE_PRICE = 125_000
 
 export const RIM_OPTIONS: CatalogItem<RimId>[] = [
   { id: 'standard', label: 'Standard', price: 0, image: rimStandard },
-  { id: 'sport', label: 'Sport', price: 4_500, image: rimSport },
+  { id: 'sport', label: 'Sporty', price: 4_500, image: rimSport },
 ]
 
 export const WHEELS_OPTIONS: (CatalogItem<WheelsId> & {
@@ -38,7 +38,7 @@ export const WHEELS_OPTIONS: (CatalogItem<WheelsId> & {
       price: 0,
       acceleration: 0,
       topSpeed: 0,
-      image: wheelsSport
+      image: wheelsTextured
     },
     {
       id: 'smooth',
@@ -46,7 +46,7 @@ export const WHEELS_OPTIONS: (CatalogItem<WheelsId> & {
       price: 2_500,
       acceleration: -0.1,
       topSpeed: 3,
-      image: wheelsStandard
+      image: wheelsSmooth
     },
   ]
 
