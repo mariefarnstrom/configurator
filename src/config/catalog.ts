@@ -6,8 +6,8 @@ import wheelsTextured from "../assets/images/wheels/textured.png";
 import rimSport from "../assets/images/rims/sport.png";
 import rimStandard from "../assets/images/rims/standard.png";
 
-import chassiCyber from "../assets/images/chassis/chassi_cyber.png";
-import chassiBubble from "../assets/images/chassis/chassi_bubble.png";
+import chassiCyber from "../assets/images/chassis/chassi_cyber.webp";
+import chassiBubble from "../assets/images/chassis/chassi_bubble.webp";
 
 import glossyBlack from "../assets/images/colors/glossy_black.png";
 import matteBlack from "../assets/images/colors/matte_black.png";
