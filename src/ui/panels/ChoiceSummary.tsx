@@ -1,0 +1,81 @@
+import { SummaryShape } from "../../components/SummaryShape";
+import { ContinueModal } from "../primitives/ContinueModal";
+import { useConfiguratorStore } from "../../store/configuratorStore"
+import { selectTotalPrice } from "../../store/selectors";
+import { COLOR_OPTIONS, CHASSI_OPTIONS, RIM_OPTIONS, WHEELS_OPTIONS } from "../../config/catalog";
+    
+
+export function ChoiceSummary() {
+    const chassi = useConfiguratorStore((state) => state.chassi)
+    const wheels = useConfiguratorStore((state) => state.wheels)
+    const rim = useConfiguratorStore((state) => state.rim)
+    const color = useConfiguratorStore((state) => state.color)
+    const totalPrice = useConfiguratorStore(selectTotalPrice);
+    const priceTag = totalPrice.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    })
+
+
+    const selection = {
+        body: chassi,
+        color: color,
+        rim: rim,
+        tire: wheels,
+    }
+
+    const selectedChassi = CHASSI_OPTIONS.find((option) => option.id === selection.body)
+    const selectedColor  = COLOR_OPTIONS.find((option) => option.id === selection.color)
+    const selectedRim    = RIM_OPTIONS.find((option) => option.id === selection.rim)
+    const selectedWheels = WHEELS_OPTIONS.find((option) => option.id === selection.tire)
+
+
+    return (
+        <div
+            className="
+                pointer-events-auto absolute bottom-0 left-0 w-dvw h-21.5
+                text-sm text-text-secondary font-primary font-medium"
+        >
+            <SummaryShape />
+
+            <div className="relative z-10 h-full w-4/5 pl-10 grid grid-cols-4 items-end">
+                <p className="px-6 py-5">
+                    Body
+                    <span className="text-accent pl-2">
+                        {selectedChassi?.label}
+                    </span>
+                </p>
+
+                <p className="px-6 py-5">
+                    Color
+                    <span className="text-accent pl-2">
+                        {selectedColor?.label}
+                    </span>
+                </p>
+
+                <p className="px-6 py-5">
+                    Rim
+                    <span className="text-accent pl-2">
+                        {selectedRim?.label}
+                    </span>
+                </p>
+
+                <p className="px-6 py-5">
+                    Tire
+                    <span className="text-accent pl-2">
+                        {selectedWheels?.label}
+                    </span>
+                </p>
+            </div>
+
+            <div className="absolute right-0 top-0 z-10 w-1/6 h-full flex flex-col items-center justify-center">
+                <div className="flex flex-col items-end text-primary-text font-semibold">
+                    <span className="text-2xl">
+                        ${priceTag}
+                    </span>
+                    <ContinueModal priceTag={priceTag} />
+                </div>
+            </div>
+        </div>
+    )
+}
