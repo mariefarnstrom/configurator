@@ -25,7 +25,7 @@ export function Hotspot({ id, position, option }: HotspotProps) {
     }
 
     return (
-        <Html position={position} occlude>
+        <Html position={position} occlude zIndexRange={[10, 20]}>
             <div className="relative aspect-square w-11.5">
                 {isOpen && <OptionDrawer option={option} />}
 

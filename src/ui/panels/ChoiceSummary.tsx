@@ -71,15 +71,7 @@ export function ChoiceSummary() {
                     <span className="text-2xl">
                         ${priceTag}
                     </span>
-
-                    <ContinueModal />
-
-                    {/* <button className="text-sm font-medium hover:underline underline-offset-2">
-                        Continue &gt;
-                        <span className="sr-only">
-                            Selected configuration costs {priceTag} dollars
-                        </span>
-                    </button> */}
+                    <ContinueModal priceTag={priceTag} />
                 </div>
             </div>
         </div>

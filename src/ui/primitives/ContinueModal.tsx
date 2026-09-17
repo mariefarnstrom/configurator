@@ -1,6 +1,10 @@
 import { useState } from "react"
 
-export function ContinueModal() {
+type ContinueModalProps = {
+    priceTag: string
+}
+
+export function ContinueModal({ priceTag }: ContinueModalProps) {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
@@ -8,21 +12,24 @@ export function ContinueModal() {
             <button
                 type="button"
                 onClick={() => setIsOpen(true)}
-                className="text-sm font-medium"
+                className="text-sm font-medium hover:underline underline-offset-2"
             >
                 Continue &gt;
+                <span className="sr-only">
+                    Selected configuration costs {priceTag} dollars
+                </span>
             </button>
 
             {isOpen && (
                 <div
-                    className="fixed inset-0 z-80 flex items-center justify-center bg-black/40"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
                     onClick={() => setIsOpen(false)}
                 >
                     <div
                         role="dialog"
                         aria-modal="true"
                         aria-labelledby="modal-title"
-                        className="w-[400px] rounded-2xl bg-white p-8 text-black"
+                        className="w-100 rounded-2xl bg-white p-8 text-black"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <h2 id="modal-title" className="text-2xl font-semibold">
@@ -36,7 +43,9 @@ export function ContinueModal() {
                         <button
                             type="button"
                             onClick={() => setIsOpen(false)}
-                            className="mt-6"
+                            className="mt-6
+                            text-sm
+                            hover:underline"
                         >
                             Close
                         </button>
