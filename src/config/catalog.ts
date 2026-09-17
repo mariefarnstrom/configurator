@@ -10,11 +10,11 @@ export type CatalogItem<Id extends string> = {
   image: string;
 }
 
-export const BASE_PRICE = 1_250_000
+export const BASE_PRICE = 125_000
 
 export const RIM_OPTIONS: CatalogItem<RimId>[] = [
   { id: 'standard', label: 'Standard', price: 0, image: "TEST" },
-  { id: 'sport', label: 'Sport', price: 25_000, image: "TEST" },
+  { id: 'sport', label: 'Sport', price: 4_500, image: "TEST" },
 ]
 
 export const WHEELS_OPTIONS: (CatalogItem<WheelsId> & {
@@ -32,7 +32,7 @@ export const WHEELS_OPTIONS: (CatalogItem<WheelsId> & {
     {
       id: 'smooth',
       label: 'Smooth',
-      price: 8_000,
+      price: 2_500,
       acceleration: -0.1,
       topSpeed: 3,
       image: wheelsStandard
@@ -46,12 +46,12 @@ export const CHASSI_OPTIONS: (CatalogItem<ChassiId> & {
   topSpeed: number;
 })[] = [
     { id: 'cyber', label: 'Cyber', price: 0, power: 842, torque: 1240, acceleration: 2.8, topSpeed: 218, image: "TEST" },
-    { id: 'bubbly', label: 'Bubbly', price: 40_000, power: 620, torque: 980, acceleration: 3.6, topSpeed: 195, image: "TEST" },
+    { id: 'bubbly', label: 'Bubbly', price: 7_500, power: 620, torque: 980, acceleration: 3.6, topSpeed: 195, image: "TEST" },
   ]
 
 export const COLOR_OPTIONS: CatalogItem<ColorId>[] = [
   { id: 'matte-silver', label: 'Matte Silver', price: 0, image: "TEST" },
   { id: 'matte-black', label: 'Matte Black', price: 0, image: "TEST" },
-  { id: 'glossy-silver', label: 'Glossy Silver', price: 0, image: "TEST" },
-  { id: 'glossy-black', label: 'Glossy Black', price: 0, image: "TEST" },
+  { id: 'glossy-silver', label: 'Glossy Silver', price: 1_500, image: "TEST" },
+  { id: 'glossy-black', label: 'Glossy Black', price: 2_000, image: "TEST" },
 ]
