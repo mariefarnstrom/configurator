@@ -1,4 +1,4 @@
-import type { RimId, WheelsId, ChassiId, ColorId, FinishId } from "../../types/configurator"
+import type { RimId, WheelsId, ChassiId, ColorId } from "../../types/configurator"
 
 export const MODEL_URL = '/models/WIP_2.glb'
 
@@ -17,8 +17,6 @@ export const CHASSI_NODES: Record<ChassiId, string> = {
   bubbly: 'Chassi_Bubble_Color',
 }
 
-export const SWITCHABLE_NODES = Object.values(RIM_NODES)
-
 export const COLOR_LIBRARY_NODE = 'Color_library'
 
 export const COLOR_MATERIALS: Record<ColorId, string> = {
@@ -26,13 +24,6 @@ export const COLOR_MATERIALS: Record<ColorId, string> = {
   'matte-black': 'cyber_chassi_color_black',
   'glossy-silver': 'Bubble_Chassi_Color_Silver_Glossy',
   'glossy-black': 'Bubble_Chassi_Color_Black_Glossy',
-}
-
-export const COLOR_FINISH: Record<ColorId, FinishId> = {
-  'matte-silver': 'matte',
-  'matte-black': 'matte',
-  'glossy-silver': 'glossy',
-  'glossy-black': 'glossy',
 }
 
 export const LIGHTS_ON_NODE = "Color_library_5"
