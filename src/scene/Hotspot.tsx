@@ -27,7 +27,7 @@ export function Hotspot({ id, position, option }: HotspotProps) {
     return (
         <Html position={position} occlude>
             <div className="relative aspect-square w-11.5">
-                {isOpen && <OptionDrawer option={option} />}
+                <OptionDrawer option={option} isOpen={isOpen} />
 
                 <button
                     aria-label={ariaLabel[option]}
