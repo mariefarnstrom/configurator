@@ -25,7 +25,7 @@ export const BASE_PRICE = 125_000
 
 export const RIM_OPTIONS: CatalogItem<RimId>[] = [
   { id: 'standard', label: 'Standard', price: 0, image: rimStandard },
-  { id: 'sport', label: 'Sport', price: 4_500, image: rimSport },
+  { id: 'sport', label: 'Sporty', price: 4_500, image: rimSport },
 ]
 
 export const WHEELS_OPTIONS: (CatalogItem<WheelsId> & {
