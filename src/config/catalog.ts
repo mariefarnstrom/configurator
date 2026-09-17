@@ -1,7 +1,7 @@
 import type { ChassiId, ColorId, RimId, WheelsId } from "../types/configurator";
 
-import wheelsStandard from "../assets/images/wheels/standard.png";
-import wheelsSport from "../assets/images/wheels/sport.png";
+import wheelsSmooth from "../assets/images/wheels/smooth.png";
+import wheelsTextured from "../assets/images/wheels/textured.png";
 
 import rimSport from "../assets/images/rims/sport.png";
 import rimStandard from "../assets/images/rims/standard.png";
@@ -38,7 +38,7 @@ export const WHEELS_OPTIONS: (CatalogItem<WheelsId> & {
       price: 0,
       acceleration: 0,
       topSpeed: 0,
-      image: wheelsSport
+      image: wheelsTextured
     },
     {
       id: 'smooth',
@@ -46,7 +46,7 @@ export const WHEELS_OPTIONS: (CatalogItem<WheelsId> & {
       price: 2_500,
       acceleration: -0.1,
       topSpeed: 3,
-      image: wheelsStandard
+      image: wheelsSmooth
     },
   ]
 
