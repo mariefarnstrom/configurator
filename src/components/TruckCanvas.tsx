@@ -1,12 +1,13 @@
-import { Canvas, useFrame } from "@react-three/fiber"
+import { Canvas } from "@react-three/fiber"
 import { Environment, OrbitControls } from "@react-three/drei"
 import { useDragRotation } from "../hooks/useDragRotation"
 import { useConfiguratorStore } from "../store/configuratorStore"
 import { RotatingScene } from "../scene/RotatingScene"
+import { GlobeIcon } from "../assets/icons/GlobeIcon"
 
 export function TruckCanvas() {
 
-    const { handlePointerDown, handlePointerMove, handlePointerUp, rotation, isDragging, isDraggingState } = useDragRotation()
+    const { handlePointerDown, handlePointerMove, handlePointerUp, rotationRef, isDraggingRef, isDraggingState } = useDragRotation()
 
     const theme = useConfiguratorStore((state) => state.theme)
     const activeOption = useConfiguratorStore((state) => state.activeOption)
@@ -40,9 +41,9 @@ export function TruckCanvas() {
             `} />
 
             {/* 360 symbol */}
-            <div className={`absolute bottom-36.5 left-1/2 -translate-x-1/2 z-10 w-18 h-8 p-0 rounded-[128px] text-sm border border-[#999999] flex items-center justify-center gap-1 pr-1
-                ${(theme === "light" ? "bg-[#D5D5D5] text-black" : "bg-[#292929] text-white")}`}>
-                <img src="/icons/Globe.svg" alt="" className={`h-4 ${theme === "dark" && "brightness-0 invert"}`} />
+            <div className="absolute bottom-36.5 left-1/2 -translate-x-1/2 z-10 w-18 h-8 p-0 rounded-[128px] text-sm border border-[#999999] flex items-center justify-center gap-1 pr-1 bg-container-big backdrop-blur-2xl text-primary-text"
+            >
+                <GlobeIcon />
                 <span>360</span>
             </div>
 
@@ -52,8 +53,8 @@ export function TruckCanvas() {
                 <Environment files={hdri} />
 
                 <RotatingScene
-                    rotation={rotation}
-                    isDragging={isDragging}
+                    rotationRef={rotationRef}
+                    isDraggingRef={isDraggingRef}
                     activeOption={activeOption}
                 />
 

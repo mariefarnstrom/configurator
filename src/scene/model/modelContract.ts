@@ -34,3 +34,8 @@ export const COLOR_FINISH: Record<ColorId, FinishId> = {
   'glossy-silver': 'glossy',
   'glossy-black': 'glossy',
 }
+
+export const LIGHTS_ON_NODE = "Color_library_5"
+export const LIGHTS_OFF_NODE = "Color_library_6"
+export const CYBER_LIGHTS_NODE = "Chassi_Cyber_Lights"
+export const BUBBLE_LIGHTS_NODE = "Chassi_Bubble_Lights"

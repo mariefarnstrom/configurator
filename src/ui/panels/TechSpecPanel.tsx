@@ -7,7 +7,7 @@ import { useShallow } from "zustand/react/shallow";
 import { useConfiguratorStore } from "../../store/configuratorStore";
 import { selectTechSpecs } from "../../store/selectors";
 
-type TechSpec = {
+type SpecDisplayItem = {
   label: string;
   value: string;
   Icon: ComponentType<SVGProps<SVGSVGElement>>;
@@ -16,7 +16,7 @@ type TechSpec = {
 export function TechSpecPanel() {
   const techSpecs = useConfiguratorStore(useShallow(selectTechSpecs));
 
-  const specs: TechSpec[] = [
+  const specs: SpecDisplayItem[] = [
     { label: "Power", value: `${techSpecs.power} Kw`, Icon: PowerIcon },
     { label: "Torque", value: `${techSpecs.torque} Nm`, Icon: TorqueIcon },
     { label: "0-100km/h", value: `${techSpecs.acceleration}s`, Icon: AccelerationIcon },

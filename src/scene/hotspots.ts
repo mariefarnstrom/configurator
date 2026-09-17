@@ -1,12 +1,13 @@
-import type { OptionKey } from "../types/configurator";
+import type { OptionKey, HotspotId } from "../types/configurator";
 
 export type HotspotConfig = {
-  id: string;
-  position: [number, number, number];
-  option: OptionKey;
+    id: HotspotId;
+    position: [number, number, number];
+    bubblyPosition?: [number, number, number];
+    option: OptionKey;
 };
 
-export const hotspots = [
+export const hotspots: HotspotConfig[] = [
     {
         id: "wheels-left",
         position: [1.6, 1.7, 1.7] as [number, number, number],
@@ -14,12 +15,17 @@ export const hotspots = [
     },
     {
         id: "wheels-right",
-        position: [-2.1, 1.8, 1.6] as [number, number, number],
+        position: [-1.8, 1.5, 1.3] as [number, number, number],
         option: "wheels" as const,
     },
     {
-        id: "chassi",
-        position: [1.2, 3.1, 0.5] as [number, number, number],
+        id: "chassi-left",
+        position: [1.25, 2.8, 0.5] as [number, number, number],
+        option: "chassi" as const,
+    },
+    {
+        id: "chassi-right",
+        position: [-1.3, 2.8, 0.5] as [number, number, number],
         option: "chassi" as const,
     },
     {
@@ -35,6 +41,7 @@ export const hotspots = [
     {
         id: "color",
         position: [0, 3.2, 2.4] as [number, number, number],
+        bubblyPosition: [0, 2.95, 2.6] as [number, number, number],
         option: "color" as const,
     },
 ]
