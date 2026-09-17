@@ -2,12 +2,9 @@ import { ChoiceSummary } from "../panels/ChoiceSummary";
 import { TechSpecPanel } from "../panels/TechSpecPanel";
 import { ThemeToggle } from "../primitives/ThemeToggle";
 
-import { useConfiguratorStore } from "../../store/configuratorStore";
-
 export function Overlay() {
-    const { theme } = useConfiguratorStore()
     return (
-        <div className={`${theme === "dark" ? "dark" : ""} grid grid-cols-3 absolute inset-0 w-dvw h-dvh pointer-events-none p-[40px_72px_72px_72px]`}>
+        <div className="grid grid-cols-3 absolute inset-0 w-dvw h-dvh pointer-events-none p-[40px_72px_72px_72px]">
             <hgroup className="text-primary-text flex flex-col gap-2">
                 <h1 className="uppercase font-primary pointer-events-auto font-bold text-5xl/[0.92] tracking-[-3px]">
                     Monster <br />

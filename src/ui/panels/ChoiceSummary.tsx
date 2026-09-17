@@ -25,11 +25,9 @@ export function ChoiceSummary() {
 
     return (
         <div
-            className={`
+            className="
                 absolute bottom-0 left-0 w-dvw h-[86px]
-                text-sm text-text-secondary font-primary font-medium
-                ${theme === "light" ? "light" : "dark"}
-            `}
+                text-sm text-text-secondary font-primary font-medium"
         >
             <SummaryShape />
 
