@@ -9,7 +9,7 @@ export function TruckCanvas() {
     const { handlePointerDown, handlePointerMove, handlePointerUp, rotation, isDragging, isDraggingState } = useDragRotation()
 
     const { theme, activeOption } = useConfiguratorStore()
-    const hdri = (theme === "light") ? "/hdri/HDRI_Day.hdr" : "/hdri/HDRI_Night.hdr"
+    const hdri = (theme === "light") ? "/hdri/HDRI_Day.hdr" : "/hdri/HDRI_Night_NY.hdr"
 
     return (
         <div className={`h-dvh relative
