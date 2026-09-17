@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useConfiguratorStore } from "../../store/configuratorStore";
 import { CHASSI_OPTIONS, COLOR_OPTIONS, RIM_OPTIONS, WHEELS_OPTIONS } from "../../config/catalog";
 import type { CatalogItem } from "../../config/catalog";
@@ -72,6 +73,14 @@ export function OptionDrawer({ option }: OptionDrawerProps) {
     const isOpen = activeOption === option;
     const options = OPTION_LISTS[option];
 
+    const firstOptionRef = useRef<HTMLButtonElement>(null);
+
+    useEffect(() => {
+        if (isOpen) {
+            firstOptionRef.current?.focus();
+        }
+    }, [isOpen]);
+
 
     return (
         <div className="contents" role="group" aria-label={OPTION_LABELS[option]}>
@@ -83,6 +92,7 @@ export function OptionDrawer({ option }: OptionDrawerProps) {
                 return (
                     <button
                         key={item.id}
+                        ref={index === 0 ? firstOptionRef : undefined}
                         type="button"
                         onClick={() => setOption(option, item.id)}
                         aria-pressed={isSelected}
@@ -94,14 +104,13 @@ export function OptionDrawer({ option }: OptionDrawerProps) {
                             opacity: isOpen ? 1 : 0,
                             transitionDelay: `${isOpen ? index * 60 : 0}ms`,
                         }}
-                        className={`absolute top-1/2 left-1/2 aspect-square w-13.75 rounded-full transition-[transform,opacity] duration-400 ease-out motion-reduce:transition-none ${isSelected ? "outline-[1px] outline-offset-2 outline-solid outline-white" : " " }`}
+                        className={`absolute top-1/2 left-1/2 aspect-square w-13.75 rounded-full transition-[transform,opacity] duration-400 ease-out motion-reduce:transition-none ${isSelected ? "outline-[1px] outline-offset-2 outline-solid outline-white" : " "}`}
                     >
                         <span className="absolute inset-0 rounded-full overflow-hidden">
                             <img src={item.image} alt={item.label} className="w-full h-full object-cover" />
                         </span>
 
-                        <span className={`font-primary absolute top-1/20 -translate-y-1/2 text-sm whitespace-nowrap text-white ${
-                                isRightSide ? "left-full ml-0.5" : "right-full mr-0.5"
+                        <span className={`font-primary absolute top-1/20 -translate-y-1/2 text-sm whitespace-nowrap text-white ${isRightSide ? "left-full ml-0.5" : "right-full mr-0.5"
                             }`}
                         >
                             {item.label}

@@ -16,8 +16,10 @@ function App() {
 
   return (
     <div className='static'>
-      <TruckCanvas />
-      <Overlay />
+      <main>
+        <TruckCanvas />
+        <Overlay />
+      </main>
 
       {/* dev: */}
       {import.meta.env.DEV && <InspectGlbFile />}
