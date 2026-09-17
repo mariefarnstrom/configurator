@@ -4,13 +4,19 @@ import { useConfiguratorStore } from "../../store/configuratorStore"
 import { selectTotalPrice } from "../../store/selectors";
 import { COLOR_OPTIONS } from "../../config/catalog";
 
-function PriceTag() {
-    const totalPrice = useConfiguratorStore(selectTotalPrice);
-    return <p>$ {totalPrice.toLocaleString("sv-SE")}</p>;
-}
 
 export function ChoiceSummary() {
-    const { chassi, wheels, rim, color, theme } = useConfiguratorStore()
+    const chassi = useConfiguratorStore((state) => state.chassi)
+    const wheels = useConfiguratorStore((state) => state.wheels)
+    const rim = useConfiguratorStore((state) => state.rim)
+    const color = useConfiguratorStore((state) => state.color)
+    const totalPrice = useConfiguratorStore(selectTotalPrice);
+    const priceTag = totalPrice.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    })
+
+
     const selection = {
         body: chassi,
         color: color,
@@ -24,11 +30,9 @@ export function ChoiceSummary() {
 
     return (
         <div
-            className={`
-                absolute bottom-0 left-0 w-dvw h-[86px]
-                text-sm text-text-secondary font-primary font-medium
-                ${theme === "light" ? "light" : "dark"}
-            `}
+            className="
+                pointer-events-auto absolute bottom-0 left-0 w-dvw h-21.5
+                text-sm text-text-secondary font-primary font-medium"
         >
             <SummaryShape />
 
@@ -65,13 +69,16 @@ export function ChoiceSummary() {
             <div className="absolute right-0 top-0 z-10 w-1/6 h-full flex flex-col items-center justify-center">
                 <div className="flex flex-col items-end text-primary-text font-semibold">
                     <span className="text-2xl">
-                        <PriceTag />
+                        ${priceTag}
                     </span>
 
                     <ContinueModal />
 
-                    {/* <button className="text-sm font-medium">
+                    {/* <button className="text-sm font-medium hover:underline underline-offset-2">
                         Continue &gt;
+                        <span className="sr-only">
+                            Selected configuration costs {priceTag} dollars
+                        </span>
                     </button> */}
                 </div>
             </div>

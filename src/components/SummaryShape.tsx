@@ -1,7 +1,7 @@
 import { useConfiguratorStore } from "../store/configuratorStore"
 
 export function SummaryShape() {
-    const { theme } = useConfiguratorStore()
+    const theme = useConfiguratorStore((state) => state.theme)
 
     return (
         <svg
