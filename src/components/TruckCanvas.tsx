@@ -37,7 +37,7 @@ export function TruckCanvas() {
             <div className={`
             absolute
             left-1/2
-            bottom-40
+            bottom-1/6
             -translate-x-1/2
             w-[min(1000px,80vw)]
             h-81.25
