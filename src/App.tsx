@@ -8,7 +8,7 @@ import { InspectGlbFile } from "../scripts/InspectGlbFile"
 
 function App() {
 
-  const { theme } = useConfiguratorStore()
+  const theme = useConfiguratorStore((state) => state.theme)
 
   useEffect(() => {
     document.body.classList.toggle("dark", theme === "dark")

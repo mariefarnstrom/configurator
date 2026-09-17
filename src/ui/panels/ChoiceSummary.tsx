@@ -2,15 +2,20 @@ import { SummaryShape } from "../../components/SummaryShape";
 import { useConfiguratorStore } from "../../store/configuratorStore"
 import { selectTotalPrice } from "../../store/selectors";
 import { COLOR_OPTIONS } from "../../config/catalog";
+    
 
 export function ChoiceSummary() {
-    const { chassi, wheels, rim, color } = useConfiguratorStore()
+    const chassi = useConfiguratorStore((state) => state.chassi)
+    const wheels = useConfiguratorStore((state) => state.wheels)
+    const rim = useConfiguratorStore((state) => state.rim)
+    const color = useConfiguratorStore((state) => state.color)
     const totalPrice = useConfiguratorStore(selectTotalPrice);
-
+    const theme = useConfiguratorStore((state) => state.theme)
     const priceTag = totalPrice.toLocaleString("en-US", {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
     })
+    
 
     const selection = {
         body: chassi,

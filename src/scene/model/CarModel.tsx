@@ -18,7 +18,7 @@ function applyVisibility<Id extends string>(
 }
 
 export function CarModel() {
-    const { theme } = useConfiguratorStore()
+    const theme = useConfiguratorStore((state) => state.theme);
     const chassi = useConfiguratorStore((state) => state.chassi);
     const wheels = useConfiguratorStore((state) => state.wheels);
     const rim = useConfiguratorStore((state) => state.rim);

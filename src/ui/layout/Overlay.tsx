@@ -3,6 +3,7 @@ import { TechSpecPanel } from "../panels/TechSpecPanel";
 import { ThemeToggle } from "../primitives/ThemeToggle";
 
 export function Overlay() {
+    const theme = useConfiguratorStore((state) => state.theme)
     return (
         <div className="grid grid-cols-3 absolute inset-0 w-dvw h-dvh pointer-events-none p-[40px_72px_72px_72px]">
             <hgroup className="text-primary-text flex flex-col gap-2">
