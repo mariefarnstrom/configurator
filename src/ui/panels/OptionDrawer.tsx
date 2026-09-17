@@ -8,6 +8,7 @@ type OptionItem = CatalogItem<OptionValueMap[OptionKey]>;
 
 type OptionDrawerProps = {
     option: OptionKey;
+    isOpen: boolean;
 };
 
 const OPTION_LABELS: Record<OptionKey, string> = {
@@ -65,12 +66,10 @@ function fanOffset(index: number, count: number) {
     };
 }
 
-export function OptionDrawer({ option }: OptionDrawerProps) {
-    const activeOption = useConfiguratorStore((state) => state.activeOption);
+export function OptionDrawer({ option, isOpen }: OptionDrawerProps) {
     const selectedId = useConfiguratorStore((state) => state[option]);
     const setOption = useConfiguratorStore((state) => state.setOption);
 
-    const isOpen = activeOption === option;
     const options = OPTION_LISTS[option];
 
     const firstOptionRef = useRef<HTMLButtonElement>(null);
@@ -104,7 +103,7 @@ export function OptionDrawer({ option }: OptionDrawerProps) {
                             opacity: isOpen ? 1 : 0,
                             transitionDelay: `${isOpen ? index * 60 : 0}ms`,
                         }}
-                        className={`absolute top-1/2 left-1/2 aspect-square w-13.75 rounded-full transition-[transform,opacity] duration-400 ease-out motion-reduce:transition-none ${isSelected ? "outline-[1px] outline-offset-2 outline-solid outline-white" : " "}`}
+                        className={`absolute top-1/2 left-1/2 aspect-square w-13.75 rounded-full transition-[transform,opacity] duration-400 ease-out motion-reduce:transition-none ${isOpen ? "" : "pointer-events-none"} ${isSelected ? "outline-[1px] outline-offset-2 outline-solid outline-white" : " "}`}
                     >
                         <span className="absolute inset-0 rounded-full overflow-hidden">
                             <img src={item.image} alt={item.label} className="w-full h-full object-cover" />

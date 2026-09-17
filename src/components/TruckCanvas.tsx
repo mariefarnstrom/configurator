@@ -1,9 +1,16 @@
 import { Canvas } from "@react-three/fiber"
-import { Environment, OrbitControls } from "@react-three/drei"
+import { Environment, useEnvironment, OrbitControls } from "@react-three/drei"
 import { useDragRotation } from "../hooks/useDragRotation"
 import { useConfiguratorStore } from "../store/configuratorStore"
 import { RotatingScene } from "../scene/RotatingScene"
 import { GlobeIcon } from "../assets/icons/GlobeIcon"
+
+const HDRI_LIGHT = "/hdri/HDRI_Day.hdr"
+const HDRI_DARK = "/hdri/HDRI_Night_NY.hdr"
+
+// Preload both HDRI's so switching theme never suspends the canvas subtree,
+useEnvironment.preload({ files: HDRI_LIGHT })
+useEnvironment.preload({ files: HDRI_DARK })
 
 export function TruckCanvas() {
 
@@ -30,10 +37,10 @@ export function TruckCanvas() {
             <div className={`
             absolute
             left-1/2
-            bottom-40
+            bottom-1/6
             -translate-x-1/2
             w-[min(1000px,80vw)]
-            h-[325px]
+            h-81.25
             rounded-[50%]
             border
             pointer-events-none
@@ -41,7 +48,7 @@ export function TruckCanvas() {
             `} />
 
             {/* 360 symbol */}
-            <div className="absolute bottom-36.5 left-1/2 -translate-x-1/2 z-10 w-18 h-8 p-0 rounded-[128px] text-sm border border-[#999999] flex items-center justify-center gap-1 pr-1 bg-container-big backdrop-blur-2xl text-primary-text"
+            <div className="absolute bottom-1/6 left-1/2 -translate-x-1/2 translate-y-1/2 z-10 w-18 h-8 p-0 rounded-[128px] text-sm border border-[#999999] flex items-center justify-center gap-1 pr-1 bg-container-big backdrop-blur-2xl text-primary-text"
             >
                 <GlobeIcon />
                 <span>360</span>
