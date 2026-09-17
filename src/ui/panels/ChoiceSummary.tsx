@@ -72,7 +72,7 @@ export function ChoiceSummary() {
                     </span>
 
 
-                    <button className="text-sm font-medium">
+                    <button className="text-sm font-medium hover:underline underline-offset-2">
                         Continue &gt;
                         <span className="sr-only">
                             Selected configuration costs {priceTag} dollars
