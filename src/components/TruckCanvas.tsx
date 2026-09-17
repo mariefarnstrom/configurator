@@ -3,7 +3,7 @@ import { Environment, OrbitControls } from "@react-three/drei"
 import { useDragRotation } from "../hooks/useDragRotation"
 import { useConfiguratorStore } from "../store/configuratorStore"
 import { RotatingScene } from "../scene/RotatingScene"
-import { GlobeIcon } from "../assets/icons/globeIcon"
+import { GlobeIcon } from "../assets/icons/GlobeIcon"
 
 export function TruckCanvas() {
 
