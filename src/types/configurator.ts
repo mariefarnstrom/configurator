@@ -3,7 +3,7 @@ export type Theme = "dark" | "light"
 export const OPTION_KEYS = ['wheels', 'chassi', 'rim', 'color'] as const
 export type OptionKey = (typeof OPTION_KEYS)[number]
 
-export const HOTSPOT_IDS = ["wheels-left", "wheels-right", "chassi", "rim-left", "rim-right", "color"] as const
+export const HOTSPOT_IDS = ["wheels-left", "wheels-right", "chassi-left", "chassi-right", "rim-left", "rim-right", "color"] as const
 export type HotspotId = (typeof HOTSPOT_IDS)[number]
 
 export const RIM_IDS = ['standard', 'sport'] as const
