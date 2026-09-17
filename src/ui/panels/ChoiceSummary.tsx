@@ -1,7 +1,7 @@
 import { SummaryShape } from "../../components/SummaryShape";
 import { useConfiguratorStore } from "../../store/configuratorStore"
 import { selectTotalPrice } from "../../store/selectors";
-import { COLOR_OPTIONS } from "../../config/catalog";
+import { COLOR_OPTIONS, CHASSI_OPTIONS, RIM_OPTIONS, WHEELS_OPTIONS } from "../../config/catalog";
     
 
 export function ChoiceSummary() {
@@ -23,9 +23,11 @@ export function ChoiceSummary() {
         tire: wheels,
     }
 
-    const selectedColor = COLOR_OPTIONS.find(
-        (option) => option.id === selection.color
-    )
+    const selectedChassi = CHASSI_OPTIONS.find((option) => option.id === selection.body)
+    const selectedColor  = COLOR_OPTIONS.find((option) => option.id === selection.color)
+    const selectedRim    = RIM_OPTIONS.find((option) => option.id === selection.rim)
+    const selectedWheels = WHEELS_OPTIONS.find((option) => option.id === selection.tire)
+
 
     return (
         <div
@@ -39,7 +41,7 @@ export function ChoiceSummary() {
                 <p className="px-6 py-5">
                     Body
                     <span className="text-accent pl-2">
-                        {selection.body.charAt(0).toUpperCase() + selection.body.slice(1)}
+                        {selectedChassi?.label}
                     </span>
                 </p>
 
@@ -53,14 +55,14 @@ export function ChoiceSummary() {
                 <p className="px-6 py-5">
                     Rim
                     <span className="text-accent pl-2">
-                        {selection.rim.charAt(0).toUpperCase() + selection.rim.slice(1)}
+                        {selectedRim?.label}
                     </span>
                 </p>
 
                 <p className="px-6 py-5">
                     Tire
                     <span className="text-accent pl-2">
-                        {selection.tire.charAt(0).toUpperCase() + selection.tire.slice(1)}
+                        {selectedWheels?.label}
                     </span>
                 </p>
             </div>
