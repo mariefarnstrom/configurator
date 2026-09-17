@@ -1,9 +1,16 @@
 import { Canvas } from "@react-three/fiber"
-import { Environment, OrbitControls } from "@react-three/drei"
+import { Environment, useEnvironment, OrbitControls } from "@react-three/drei"
 import { useDragRotation } from "../hooks/useDragRotation"
 import { useConfiguratorStore } from "../store/configuratorStore"
 import { RotatingScene } from "../scene/RotatingScene"
 import { GlobeIcon } from "../assets/icons/GlobeIcon"
+
+const HDRI_LIGHT = "/hdri/HDRI_Day.hdr"
+const HDRI_DARK = "/hdri/HDRI_Night_NY.hdr"
+
+// Preload both HDRI's so switching theme never suspends the canvas subtree,
+useEnvironment.preload({ files: HDRI_LIGHT })
+useEnvironment.preload({ files: HDRI_DARK })
 
 export function TruckCanvas() {
 
@@ -33,7 +40,7 @@ export function TruckCanvas() {
             bottom-40
             -translate-x-1/2
             w-[min(1000px,80vw)]
-            h-[325px]
+            h-81.25
             rounded-[50%]
             border
             pointer-events-none

@@ -2,7 +2,7 @@ import { useFrame } from "@react-three/fiber"
 import { useRef } from "react"
 import * as THREE from "three"
 
-import { CarModel } from "./model/CarModel"
+import { TruckModel } from "./model/TruckModel"
 import { Hotspot } from "./Hotspot"
 import { hotspots } from "./hotspots"
 import { useConfiguratorStore } from "../store/configuratorStore"
@@ -36,7 +36,7 @@ export function RotatingScene({
             ref={groupRef}
             position={[0, -1, 0]}
         >
-            <CarModel />
+            <TruckModel />
 
             {hotspots.map((hotspot) => {
                 const position =
