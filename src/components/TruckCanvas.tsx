@@ -11,7 +11,7 @@ export function TruckCanvas() {
 
     const theme = useConfiguratorStore((state) => state.theme)
     const activeOption = useConfiguratorStore((state) => state.activeOption)
-    const hdri = (theme === "light") ? "/hdri/HDRI_Day.hdr" : "/hdri/HDRI_Night.hdr"
+    const hdri = (theme === "light") ? "/hdri/HDRI_Day.hdr" : "/hdri/HDRI_Night_NY.hdr"
 
     return (
         <div className={`h-dvh relative
