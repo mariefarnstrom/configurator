@@ -1,4 +1,5 @@
 import { SummaryShape } from "../../components/SummaryShape";
+import { ContinueModal } from "../primitives/ContinueModal";
 import { useConfiguratorStore } from "../../store/configuratorStore"
 import { selectTotalPrice } from "../../store/selectors";
 import { COLOR_OPTIONS } from "../../config/catalog";
@@ -67,10 +68,11 @@ export function ChoiceSummary() {
                         <PriceTag />
                     </span>
 
+                    <ContinueModal />
 
-                    <button className="text-sm font-medium">
+                    {/* <button className="text-sm font-medium">
                         Continue &gt;
-                    </button>
+                    </button> */}
                 </div>
             </div>
         </div>
