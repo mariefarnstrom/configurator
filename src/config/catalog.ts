@@ -57,7 +57,7 @@ export const CHASSI_OPTIONS: (CatalogItem<ChassiId> & {
   topSpeed: number;
 })[] = [
     { id: 'cyber', label: 'Cyber', price: 0, power: 842, torque: 1240, acceleration: 2.8, topSpeed: 218, image: chassiCyber },
-    { id: 'bubbly', label: 'Bubbly', price: 7_500, power: 620, torque: 980, acceleration: 3.6, topSpeed: 195, image: chassiBubble },
+    { id: 'bubbly', label: 'Bullet', price: 7_500, power: 620, torque: 980, acceleration: 3.6, topSpeed: 195, image: chassiBubble },
   ]
 
 export const COLOR_OPTIONS: CatalogItem<ColorId>[] = [
