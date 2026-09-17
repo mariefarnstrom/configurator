@@ -48,7 +48,7 @@ export function TruckCanvas() {
             `} />
 
             {/* 360 symbol */}
-            <div className="absolute bottom-36.5 left-1/2 -translate-x-1/2 z-10 w-18 h-8 p-0 rounded-[128px] text-sm border border-[#999999] flex items-center justify-center gap-1 pr-1 bg-container-big backdrop-blur-2xl text-primary-text"
+            <div className="absolute bottom-1/6 left-1/2 -translate-x-1/2 translate-y-1/2 z-10 w-18 h-8 p-0 rounded-[128px] text-sm border border-[#999999] flex items-center justify-center gap-1 pr-1 bg-container-big backdrop-blur-2xl text-primary-text"
             >
                 <GlobeIcon />
                 <span>360</span>
