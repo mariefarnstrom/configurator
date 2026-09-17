@@ -4,7 +4,7 @@ import { selectTotalPrice } from "../../store/selectors";
 import { COLOR_OPTIONS } from "../../config/catalog";
 
 export function ChoiceSummary() {
-    const { chassi, wheels, rim, color, theme } = useConfiguratorStore()
+    const { chassi, wheels, rim, color } = useConfiguratorStore()
     const totalPrice = useConfiguratorStore(selectTotalPrice);
 
     const priceTag = totalPrice.toLocaleString("en-US", {
