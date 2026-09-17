@@ -17,13 +17,15 @@ export function ThemeToggle({ className = "" }: ThemeToggleProps) {
         >
             <button
                 className={`h-7 w-20 rounded-[128px] flex items-center justify-center gap-2 p-2 pr-4
-                ${theme === "light" ? "border border-[#999999] bg-white" : "text-[#666666]"}`}
+                ${theme === "light" ? "border border-[#999999] bg-white" : "text-[#666666]"}
+                ${theme === "dark" ? "hover:bg-accent/40 hover:text-white" : " "}`}
                 onClick={() => setTheme("light")}>
                 <SunIcon />Light
             </button>
             <button
                 className={`h-7 w-20 rounded-[128px] flex items-center justify-center gap-2 p-2 pr-4
-                ${theme === "dark" ? "border border-[#999999] bg-black text-white" : "text-[#666666]"}`}
+                ${theme === "dark" ? "border border-[#999999] bg-black text-white" : "text-[#666666]"}
+                ${theme === "light" ? "hover:bg-accent/40 hover:text-white" : " "}`}
                 onClick={() => setTheme("dark")}>
                 <MoonIcon />Dark
             </button>

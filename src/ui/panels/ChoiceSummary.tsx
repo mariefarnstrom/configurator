@@ -30,7 +30,7 @@ export function ChoiceSummary() {
     return (
         <div
             className="
-                absolute bottom-0 left-0 w-dvw h-[86px]
+                pointer-events-auto absolute bottom-0 left-0 w-dvw h-21.5
                 text-sm text-text-secondary font-primary font-medium"
         >
             <SummaryShape />
