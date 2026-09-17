@@ -1,4 +1,6 @@
+import { useRef, useState } from "react";
 import { Html } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { useConfiguratorStore } from "../store/configuratorStore";
 import { OptionDrawer } from "../ui/panels/OptionDrawer";
 import type { OptionKey } from "../types/configurator";
@@ -17,6 +19,17 @@ export function Hotspot({ id, position, option }: HotspotProps) {
     const setActiveHotspot = useConfiguratorStore((state) => state.setActiveHotspot);
     const isOpen = activeOption === option && activeHotspot === id;
 
+    const [occluded, setOccluded] = useState(false);
+
+    const [ready, setReady] = useState(false);
+    const frameCount = useRef(0);
+
+    useFrame(() => {
+        if (!ready && ++frameCount.current > 1) setReady(true);
+    });
+
+    const isHidden = !ready || occluded;
+
     const ariaLabel: Record<OptionKey, string> = {
         wheels: "Choose tires",
         rim: "Choose rims",
@@ -25,8 +38,11 @@ export function Hotspot({ id, position, option }: HotspotProps) {
     }
 
     return (
-        <Html position={position} occlude zIndexRange={[10, 20]}>
-            <div className="relative aspect-square w-11.5">
+        <Html position={position} occlude onOcclude={setOccluded} zIndexRange={[10, 20]}>
+            <div
+                className={`relative aspect-square w-11.5 transition-[opacity,visibility] duration-200 ease-out motion-reduce:transition-none ${isHidden ? "invisible opacity-0" : "visible opacity-100"
+                    }`}
+            >
                 <OptionDrawer option={option} isOpen={isOpen} />
 
                 <button
