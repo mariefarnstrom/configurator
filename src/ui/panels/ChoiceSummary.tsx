@@ -10,7 +10,6 @@ export function ChoiceSummary() {
     const rim = useConfiguratorStore((state) => state.rim)
     const color = useConfiguratorStore((state) => state.color)
     const totalPrice = useConfiguratorStore(selectTotalPrice);
-    const theme = useConfiguratorStore((state) => state.theme)
     const priceTag = totalPrice.toLocaleString("en-US", {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
