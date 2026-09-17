@@ -1,4 +1,5 @@
 import { SummaryShape } from "../../components/SummaryShape";
+import { ContinueModal } from "../primitives/ContinueModal";
 import { useConfiguratorStore } from "../../store/configuratorStore"
 import { selectTotalPrice } from "../../store/selectors";
 import { COLOR_OPTIONS, CHASSI_OPTIONS, RIM_OPTIONS, WHEELS_OPTIONS } from "../../config/catalog";
@@ -14,7 +15,7 @@ export function ChoiceSummary() {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
     })
-    
+
 
     const selection = {
         body: chassi,
@@ -72,14 +73,7 @@ export function ChoiceSummary() {
                     <span className="text-2xl">
                         ${priceTag}
                     </span>
-
-
-                    <button className="text-sm font-medium hover:underline underline-offset-2">
-                        Continue &gt;
-                        <span className="sr-only">
-                            Selected configuration costs {priceTag} dollars
-                        </span>
-                    </button>
+                    <ContinueModal priceTag={priceTag} />
                 </div>
             </div>
         </div>
